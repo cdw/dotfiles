@@ -1,0 +1,22 @@
+# Basics 
+ startup_message off    # Don't display copyright page
+ vbell off              # Removes alerts
+ msgwait 3              # Display messages for 3 sec
+ defshell -$SHELL       # Dash makes it a login shell
+
+# Banish screen 0, it sucks 
+ bind c screen 1
+ bind ^c screen 1
+ bind 0 select 10
+ screen -t bash 1
+
+# Status line
+ caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
+ hardstatus alwayslastline
+ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+
+# Mouse click to switch focus
+ mousetrack on
+
+# Remap ctrl-a to ctrl-b, get tmux compatibility
+escape ^Bb

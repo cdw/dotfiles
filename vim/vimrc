@@ -1,0 +1,220 @@
+
+"----------------------------
+" FONT AND COLORATION
+" ---------------------------
+
+colorscheme desert
+hi Search cterm=underline ctermfg=magenta ctermbg=black
+syntax on
+filetype plugin indent on " Turn on plugins
+
+if has("macunix")
+    set gfn=ProggyTiny:h11   " Gimme Proggy as the font
+elseif has("unix")
+    set gfn=ProggyTinyTT\ 12 " Still gimmie Proggy
+endif
+
+
+"----------------------------
+" DIRECTORY MANAGEMENT
+" ---------------------------
+
+" move those pesky temporary files to somewhere dropbox won't see them
+set directory=~/.vimbackup
+set backupdir=~/.vimbackup
+
+" load specifics to this host
+if filereadable(expand("~/.vimlocal"))
+  source ~/.vimlocal
+endif
+
+" Have a status line at the screen bottom
+" set statusline=%f%m%r%h%W\ %=\ [B%2.0n]\ [POS=%l,%v][%p%%]\ %{strftime(\"%H:%M\")} " now covered by lightline?
+set laststatus=2
+
+
+"----------------------------
+" OPTIONS
+" ---------------------------
+
+" Experimental 
+command! MakeTags !ctags -R .
+
+" Tried and true
+set expandtab     "use 4 spaces instead of a tab
+set shiftwidth=4  "ditto
+set softtabstop=4 "ditto
+set tabstop=4     "ditto
+set smarttab      "ditto
+set autoindent    "carry indenting to next line
+set cinkeys-=0#   "comments don't fiddle with indenting
+set guioptions-=T " Get rid of the toolbar
+set nu            " Line numbers, remove with :set nonumber
+set hls           " Highlight searches
+set is            " Search while typing
+set sc            " Show partial commands
+set smd           " Show mode
+set sm            " Show matching parens
+set spell         " Check my spelling
+    hi SpellBad ctermfg=202 ctermbg=233 
+    set spellfile=~/.vim/dict.en.add
+set path+=**      " Search down into subdirs
+set wildmenu      " Display all matching files on tab
+
+" single-line comments
+"map ,# :s/^\(.\)/# \1/<CR> " Bash, Python
+" wrapping comments
+"map ,' :s/^\(.*\)$/\'\'\' \1 \'\'\'/<CR>:nohlsearch<CR> " Python, single '
+"map ,' :s/^\(.*\)$/\"\"\" \1 \"\"\"/<CR>:nohlsearch<CR> " Python, double "
+" wrapping uncomments
+
+
+"----------------------------
+" NAVIGATION
+" ---------------------------
+
+" Fast window movement shortcuts, now handled by vim-tmux navigator?
+" nmap <C-h> <C-w>h
+" nmap <C-j> <C-w>j
+" nmap <C-k> <C-w>k
+" nmap <C-l> <C-w>l
+" Move between open buffers.
+nmap <C-n> :bnext<CR>
+nmap <C-p> :bprev<CR>
+
+" When typing text, treat display lines as logical lines
+au FileType html,tex,mkd noremap <buffer> j gj
+au FileType html,tex,mkd noremap <buffer> k gk
+" When typing text, soft break at word boundaries
+au FileType html,tex,mkd set linebreak nolist 
+" Use the mouse in the terminal (a=in all modes)
+set mouse=a 
+" Allow backspace to join lines, remove indents, go past start of insert
+set backspace=eol,indent,start
+" What do we want to wrap? Everything
+set whichwrap=b,s,h,l,<,>,~,[,] 
+"             | | | | | | | | |
+"             | | | | | | | | +-- "]" Insert and Replace
+"             | | | | | | | +-- "[" Insert and Replace
+"             | | | | | | +-- "~" Normal
+"             | | | | | +-- <Right> Normal and Visual
+"             | | | | +-- <Left> Normal and Visual
+"             | | | +-- "l" Normal and Visual (not recommended)
+"             | | +-- "h" Normal and Visual (not recommended)
+"             | +-- <Space> Normal and Visual
+"             +-- <BS> Normal and Visual
+
+
+
+"----------------------------
+" PLUGINS
+" ---------------------------
+
+" Manage plugins with vim-plug
+" https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Code folding, needs review
+Plug 'vim-scripts/taglist.vim'
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+
+" Nerdtree for pseudo-project pane
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+nmap \n :NERDTreeToggle<CR>
+
+" Autocomplete python, in heavy flux
+Plug 'vim-scripts/pythoncomplete', { 'for': 'python' }
+"Plug 'vim-scripts/Pydiction', { 'for': 'python' }
+"let g:pydiction_location = '~/.vim/plugged/Pydiction/complete-dict'
+
+
+" LaTeX
+Plug 'vim-latex/vim-latex', { 'for': 'latex'}
+
+" Outliner
+Plug 'vimoutliner/vimoutliner'
+
+" For writing prose
+Plug 'junegunn/goyo.vim'
+" Set a prose mode function call
+  function! ProseMode()
+      call goyo#execute(0, [])
+      set linebreak nolist
+      set spell noci nosi noai noshowmode noshowcmd
+      set complete+=s
+      set bg=light
+      if !has('gui_running')
+          let g:solarized_termcolors=256
+      endif
+          colors solarized
+      endfunction
+
+  command! ProseMode call ProseMode()
+  nmap \p :ProseMode<CR>
+
+" Gitgutter
+Plug 'airblade/vim-gitgutter'
+  let g:gitgutter_sign_added = '∙'
+  let g:gitgutter_sign_modified = '~'
+  let g:gitgutter_sign_removed = '∙'
+  let g:gitgutter_sign_modified_removed = '∙'
+  let g:gitgutter_realtime = 1
+  set updatetime=250 "affects a lot outside gitgutter
+
+" ALE - asynchronous linting
+Plug 'w0rp/ale'
+  let g:ale_sign_error = '>'
+  let g:ale_sign_warning = '-'
+  let g:ale_enabled = 0
+  let g:ale_linters = {'python': ['pep8','yapf']}
+  nmap <silent> \e <Plug>(ale_next_wrap)
+  nmap <silent> \E <Plug>(ale_previous_wrap)
+
+" Colorscheme management
+Plug 'altercation/vim-colors-solarized'
+
+" Buffer list in statusline
+Plug 'bling/vim-bufferline'
+   let g:bufferline_echo = 0
+   let g:bufferline_active_buffer_left = '^'
+   let g:bufferline_active_buffer_right = ''
+
+" Statusline with lightline
+Plug 'itchyny/lightline.vim'
+    let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [[ 'mode', 'paste' ], 
+      \            [ 'readonly', 'filename', 'modified'],
+      \            ['bufferline']],
+      \   'right': [['lineinfo'],
+      \             ['percent'],
+      \             ['fileencoding','filetype', 'statusclock']]
+      \  },
+      \ 'component_type': {
+      \   'bufferline': 'tabsel',
+      \  },
+      \ 'component_expand': {
+      \   'bufferline': 'LightlineBufferline',
+      \  },
+      \ 'component_function': {
+      \   'statusclock': 'StatusClock',
+      \  },
+      \ }
+  function! StatusClock()
+    return strftime("%H:%M")
+  endfunction
+  function! LightlineBufferline()
+  call bufferline#refresh_status()
+    let b = g:bufferline_status_info.before
+    let c = g:bufferline_status_info.current
+    let a = g:bufferline_status_info.after
+    return [b, c, a]
+  endfunction
+
+" Navigate between vim windows and tmux panes
+Plug 'christoomey/vim-tmux-navigator'
+
+" Add plugins to &runtimepath
+call plug#end()
+

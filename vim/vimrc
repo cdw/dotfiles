@@ -117,6 +117,10 @@ Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 nmap \n :NERDTreeToggle<CR>
 
+
+" Startscreen that uses sessions
+Plug 'mhinz/vim-startify'
+
 " Autocomplete python, in heavy flux
 Plug 'vim-scripts/pythoncomplete', { 'for': 'python' }
 "Plug 'vim-scripts/Pydiction', { 'for': 'python' }

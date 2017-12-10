@@ -61,13 +61,6 @@ set spell         " Check my spelling
 set path+=**      " Search down into subdirs
 set wildmenu      " Display all matching files on tab
 
-" single-line comments
-"map ,# :s/^\(.\)/# \1/<CR> " Bash, Python
-" wrapping comments
-"map ,' :s/^\(.*\)$/\'\'\' \1 \'\'\'/<CR>:nohlsearch<CR> " Python, single '
-"map ,' :s/^\(.*\)$/\"\"\" \1 \"\"\"/<CR>:nohlsearch<CR> " Python, double "
-" wrapping uncomments
-
 
 "----------------------------
 " NAVIGATION

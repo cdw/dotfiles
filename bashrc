@@ -14,7 +14,8 @@ COLOR1="\[\033[0;34m\]" #Light blue
 COLOR2="\[\033[0;37m\]" #Light grey
 COLOR3="\[\033[0;32m\]" #Light green
 COLOR4="\[\033[0;35m\]" #Light purple
-PS1="$COLOR1\u$COLOR2:$COLOR3\w$COLOR4 \$ $COLOR2"
+COLOR5="\[\033[0m\]"    #Reset all
+PS1="$COLOR1\u$COLOR2:$COLOR3\w$COLOR4 \$ $COLOR5"
 
 # Customize the title bar
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'

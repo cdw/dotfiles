@@ -184,7 +184,7 @@ Plug 'itchyny/lightline.vim'
       \            ['bufferline']],
       \   'right': [['lineinfo'],
       \             ['percent'],
-      \             ['fileencoding','filetype', 'statusclock']]
+      \             ['filetype', 'statusclock']]
       \  },
       \ 'component_type': {
       \   'bufferline': 'tabsel',

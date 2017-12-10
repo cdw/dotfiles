@@ -73,11 +73,6 @@ set wildmenu      " Display all matching files on tab
 " NAVIGATION
 " ---------------------------
 
-" Fast window movement shortcuts, now handled by vim-tmux navigator?
-" nmap <C-h> <C-w>h
-" nmap <C-j> <C-w>j
-" nmap <C-k> <C-w>k
-" nmap <C-l> <C-w>l
 " Move between open buffers.
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
@@ -212,7 +207,9 @@ Plug 'itchyny/lightline.vim'
     return [b, c, a]
   endfunction
 
-" Navigate between vim windows and tmux panes
+" tmux-navigator
+" Navigate panes using ^-<movement-key>
+" Works within vim and between vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
 
 " Add plugins to &runtimepath

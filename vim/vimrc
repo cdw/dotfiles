@@ -133,6 +133,9 @@ Plug 'vim-latex/vim-latex', { 'for': 'latex'}
 " Outliner
 Plug 'vimoutliner/vimoutliner'
 
+" Tasklist
+Plug 'vim-scripts/TaskList.vim'
+
 " For writing prose
 Plug 'junegunn/goyo.vim'
 " Set a prose mode function call

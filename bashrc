@@ -2,7 +2,7 @@
 
 # Enable local bash customization, per machine basis
 if [ -f ./.bash_local ]; then
-            source .bash_local
+    source .bash_local
 fi
 
 #########
@@ -18,7 +18,7 @@ COLOR5="\[\033[0m\]"    #Reset all
 PS1="$COLOR1\u$COLOR2:$COLOR3\w$COLOR4 \$ $COLOR5"
 
 # Customize the title bar
-PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}\007"' # :${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
 
 

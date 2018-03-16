@@ -39,6 +39,7 @@ set laststatus=2
 
 " Experimental 
 command! MakeTags !ctags -R .
+nmap <leader>R :source ~/.vim/vimrc<cr>
 
 " Tried and true
 set expandtab     "use 4 spaces instead of a tab

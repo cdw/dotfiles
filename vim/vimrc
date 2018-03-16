@@ -143,7 +143,7 @@ Plug 'junegunn/goyo.vim'
           let g:solarized_termcolors=256
       endif
           colors solarized
-      endfunction
+  endfunction
 
   command! ProseMode call ProseMode()
   nmap \p :ProseMode<CR>

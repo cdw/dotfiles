@@ -162,11 +162,16 @@ Plug 'airblade/vim-gitgutter'
   set updatetime=250 "affects a lot outside gitgutter
 
 " ALE - asynchronous linting
-Plug 'w0rp/ale', { 'for': 'python'}
-  let g:ale_sign_error = '>'
-  let g:ale_sign_warning = '-'
+Plug 'w0rp/ale'
+  "let g:ale_linters = {'python': ['autopep8']}
+  let g:ale_fixers = {'python': ['autopep8', 'yapf', 'trim_whitespace', 'remove_trailing_lines']}
+  let g:ale_python_autopep8_options = '--agressive'
+  let g:ale_sign_error = 'X'
+  let g:ale_sign_warning = '~'
+  let g:ale_lint_on_enter = 0
   let g:ale_enabled = 0
-  let g:ale_linters = {'python': ['pep8','yapf']}
+  nmap <leader>a :ALEToggle<CR>
+  nmap <leader>A :ALEFix<CR>
   nmap <silent> \e <Plug>(ale_next_wrap)
   nmap <silent> \E <Plug>(ale_previous_wrap)
 

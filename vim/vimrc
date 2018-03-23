@@ -19,7 +19,7 @@ endif
 " DIRECTORY MANAGEMENT
 " ---------------------------
 
-" move those pesky temporary files to somewhere dropbox won't see them
+" move temporary files to somewhere dropbox won't see them
 set directory=~/.vimbackup
 set backupdir=~/.vimbackup
 
@@ -131,7 +131,7 @@ Plug 'vim-latex/vim-latex', { 'for': 'latex'}
 " Outliner
 Plug 'vimoutliner/vimoutliner'
 
-" Tasklist
+" Tasklist, access with \t
 Plug 'vim-scripts/TaskList.vim'
 
 " For writing prose

@@ -9,9 +9,9 @@ syntax on
 filetype plugin indent on " Turn on plugins
 
 if has("macunix")
-    set gfn=ProggyTiny:h11   " Gimme Proggy as the font
+    set gfn=Menlo:h11   " Gimme Menlo as the font
 elseif has("unix")
-    set gfn=ProggyTinyTT\ 12 " Still gimmie Proggy
+    set gfn=ProggyTinyTT\ 12 " Gimmie Proggy
 endif
 
 

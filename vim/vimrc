@@ -222,6 +222,11 @@ Plug 'itchyny/lightline.vim'
 " Works within vim and between vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
 
+"Live markdown preview with Ctrl-p
+Plug 'JamshedVesuna/vim-markdown-preview'
+let g:vim_markdown_preview_browser='Firefox'
+let g:vim_markdown_preview_github=1
+
 " Add plugins to &runtimepath
 call plug#end()
 

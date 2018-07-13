@@ -9,3 +9,4 @@ aws/certs
 aws/credentials
 boto
 ssh
+pypirc

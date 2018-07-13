@@ -14,6 +14,9 @@ Voices Within, http://streams.echoesofbluemars.org:8000/voicesfromwithin.m3u
 KALX: UC Berkeley, http://icecast.media.berkeley.edu:8000/kalx-128.mp3.m3u
 KAOS: Evergreen State, http://www.kaosradio.org/streams/kaos128.pls
 WZBC: Boston College, http://amber.streamguys.com:4860/listen.pls
+KCRW, http://media.kcrw.com/pls/kcrwsimulcast.pls
+KCRW: Eclectic24, http://media.kcrw.com/pls/kcrwmusic.pls
+KCRW: News24, http://media.kcrw.com/pls/kcrwnews.pls
 #SomaFM: Groove Salad (Chillout), http://somafm.com/startstream=groovesalad.pls
 #SomaFM: Beat Blender (House), http://somafm.com/startstream=beatblender.pls
 #SomaFM: Cliq Hop, http://somafm.com/startstream=cliqhop.pls

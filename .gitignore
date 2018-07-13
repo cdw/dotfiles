@@ -1,2 +1,11 @@
 # Ain't nobody want these
 .DS_Store
+vim/session
+tmux/resurrect
+
+# Privacy matters
+aws/keys
+aws/certs
+aws/credentials
+boto
+ssh

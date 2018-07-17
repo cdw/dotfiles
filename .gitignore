@@ -10,3 +10,8 @@ aws/credentials
 boto
 ssh
 pypirc
+unison
+
+# These are controlled by plugin managers
+vim/plugged
+tmux/plugins

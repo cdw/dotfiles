@@ -1,8 +1,7 @@
 # Find lots more stations at http://www.iheard.com
-KING: Classical, http://icy2.abacast.com/king-kingmp3-96.m3u
-KING: Opera, http://icy2.abacast.com/king-operamp3-48.m3u
-KING: Second Inversion, http://icy3.abacast.com/king-secondinversionmp3-48.m3u
-KING: Evergreen, http://icy2.abacast.com/king-evergreenmp3-48.m3u
+KING: Classical, http://classicalking.streamguys1.com/king-fm-mp3
+KING: Second Inversion, http://classicalking.streamguys1.com/second-inversion-aac
+KING: Evergreen, http://classicalking.streamguys1.com/evergreen-mp3-96k
 KEXP, http://live-mp3-128.kexp.org/
 KNKX, http://icy1.abacast.com/kplu-newsjazzaac-64.m3u
 KNKX: Jazz24, http://icy1.abacast.com/kplu-jazz24mp3-32.m3u

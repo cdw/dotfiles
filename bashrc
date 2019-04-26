@@ -41,14 +41,6 @@ alias ..='cd ..'        # .. bumps you up a directory
 # We like the vim
 export EDITOR=vim
 
-# Enable bash completion in interactive shells and have a good memory
-# Locally or via Homebrew
-if [ -f /etc/bash_completion ]; then
-            . /etc/bash_completion
-fi
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-            . $(brew --prefix)/etc/bash_completion
-fi
 
 ##########
 # HISTORY 
@@ -62,4 +54,7 @@ bind '"\e[A"':history-search-backward
 bind '"\e[B"':history-search-forward
 
 # have a good memory
-export HISTFILESIZE=5000
+export HISTFILESIZE=10000
+
+# fuzzy finder support
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

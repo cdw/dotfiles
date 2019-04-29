@@ -46,18 +46,17 @@ export EDITOR=vim
 # HISTORY 
 ##########
 
-# h shows the last 30 entries
-alias h='history 30'    
-
-# search bash history with up/down arrows
+# Search bash history with up/down arrows
 bind '"\e[A"':history-search-backward
 bind '"\e[B"':history-search-forward
 
-# have a good memory
+# Have a good memory
 export HISTFILESIZE=10000
-export HISTCONTROL=ignoredups:erasedups
+
+# Dynamically update .bash_history
+export HISTCONTROL=ignoredups:erasedups  # ignore dupes
 shopt -s histappend  # append instead of overwrite
-export PROMPT_COMMAND="${PROMPT_COMMAND}; history -a"  # write each command
+export PROMPT_COMMAND="${PROMPT_COMMAND}; history -a"  # write as you go
 
 # fuzzy finder support
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

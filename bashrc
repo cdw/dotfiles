@@ -1,8 +1,8 @@
 # Bashrc is used to configure terminal instances
 
 # Enable local bash customization, per machine basis
-if [ -f ./.bash_local ]; then
-    source .bash_local
+if [ -f ~/.bash_local ]; then
+    source ~/.bash_local
 fi
 
 #########

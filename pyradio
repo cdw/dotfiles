@@ -1,22 +1,20 @@
 # Find lots more stations at http://www.iheard.com
 KING: Classical, http://classicalking.streamguys1.com/king-fm-mp3
-KING: Second Inversion, http://classicalking.streamguys1.com/second-inversion-aac
 KING: Evergreen, http://classicalking.streamguys1.com/evergreen-mp3-96k
 KEXP, http://live-mp3-128.kexp.org/
-KNKX, http://icy1.abacast.com/kplu-newsjazzaac-64.m3u
-KNKX: Jazz24, http://icy1.abacast.com/kplu-jazz24mp3-32.m3u
-KUOW, http://www2.kuow.org/stream/kuowhb.m3u
-KUOW2, http://www2.kuow.org/stream/kuow2hb.m3u
+KNKX, http://live.wostreaming.net/direct/ppm-knkxfmmp3-ibc1
+KNKX: Jazz24, http://live.wostreaming.net/direct/ppm-jazz24mp3-ibc1
+KUOW, http://playerservices.streamtheworld.com/pls/KUOWFM_HIGH_MP3.pls
 Bluemars, http://streams.echoesofbluemars.org:8000/bluemars.m3u
 Cryosleep, http://streams.echoesofbluemars.org:8000/cryosleep.m3u
 Voices Within, http://streams.echoesofbluemars.org:8000/voicesfromwithin.m3u
-KALX: UC Berkeley, http://icecast.media.berkeley.edu:8000/kalx-128.mp3.m3u
-KAOS: Evergreen State, http://www.kaosradio.org/streams/kaos128.pls
-WZBC: Boston College, http://amber.streamguys.com:4860/listen.pls
+KALX: UC Berkeley, http://stream.kalx.berkeley.edu:8000/kalx-128.mp3
+KAOS: Evergreen State, http://205.134.192.90:8930/
+WZBC: Boston College, http://amber.streamguys.com:4860/
 KCRW, http://media.kcrw.com/pls/kcrwsimulcast.pls
 KCRW: Eclectic24, http://media.kcrw.com/pls/kcrwmusic.pls
 KCRW: News24, http://media.kcrw.com/pls/kcrwnews.pls
-#SomaFM: Groove Salad (Chillout), http://somafm.com/startstream=groovesalad.pls
+#SomaF: Groove Salad (Chillout), http://somafm.com/startstream=groovesalad.pls
 #SomaFM: Beat Blender (House), http://somafm.com/startstream=beatblender.pls
 #SomaFM: Cliq Hop, http://somafm.com/startstream=cliqhop.pls
 #SomaFM: Sonic Universe (Jazz), http://somafm.com/startstream=sonicuniverse.pls

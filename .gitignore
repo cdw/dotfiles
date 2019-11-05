@@ -4,14 +4,11 @@ vim/session
 tmux/resurrect
 
 # Privacy matters
-aws/keys
-aws/certs
-aws/credentials
-boto
-ssh
-pypirc
-unison
+aws/
+sync/
+.ssh
+.pypirc
 
 # These are controlled by plugin managers
-vim/plugged
-tmux/plugins
+dev/.vim/
+term/.tmux/

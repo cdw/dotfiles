@@ -3,7 +3,11 @@
 " FONT AND COLORATION
 " ---------------------------
 
-colorscheme desert
+colorscheme solarized
+set background=light
+" swap background with <leader>bg
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
 hi Search cterm=underline ctermfg=magenta ctermbg=black
 syntax on
 filetype plugin indent on " Turn on plugins
@@ -57,8 +61,9 @@ set sc            " Show partial commands
 set smd           " Show mode
 set sm            " Show matching parens
 set spell         " Check my spelling
-    hi SpellBad ctermfg=202 ctermbg=233 
-    set spellfile=~/.vim/dict.en.add
+hi SpellBad ctermfg=202 ctermbg=233 
+inoremap <C-f> <c-g>u<Esc>[s1z=`]a<c-g>u
+set spellfile=~/.vim/dict.en.add
 set path+=**      " Search down into subdirs
 set wildmenu      " Display all matching files on tab
 set complete-=i   " Don't search included files on autocomplete
@@ -106,33 +111,44 @@ call plug#begin('~/.vim/plugged')
 
 " Browse by tag, using \T
 Plug 'vim-scripts/taglist.vim'
-nmap \T :TlistToggle<CR>
+nmap <Leader>T :TlistToggle<CR>
 
 " Code folding, relies on taglist
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-
-" Nerdtree for pseudo-project pane
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-nmap \n :NERDTreeToggle<CR>
-
 
 " Startscreen that uses sessions
 Plug 'mhinz/vim-startify'
 
 " Autocomplete python, in heavy flux
+" K to show docs for function
 Plug 'vim-scripts/pythoncomplete', { 'for': 'python' }
-"Plug 'vim-scripts/Pydiction', { 'for': 'python' }
-"let g:pydiction_location = '~/.vim/plugged/Pydiction/complete-dict'
+Plug 'davidhalter/jedi-vim'
+let g:jedi#usages_command = "<leader>N"
+"Plug 'cjrh/vim-conda' " Let's us activate conda envs
+"nmap <Leader>c :CondaChangeEnv<CR>
+nmap <Leader>P :!python %<CR>
 
+" Nerdtree for pseudo-project pane
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+nmap <Leader>n :NERDTreeToggle<CR>
+
+" Buffergator for Nerdtree but for buffers
+Plug 'jeetsukumaran/vim-buffergator', {'on': 'BuffergatorToggle'}
+nmap <Leader>bu :BuffergatorToggle<CR>
+let g:buffergator_suppress_keymaps = 1
 
 " LaTeX
 Plug 'vim-latex/vim-latex', { 'for': 'latex'}
+
+" Markdown
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown'}
 
 " Outliner
 Plug 'vimoutliner/vimoutliner'
 
 " Tasklist, access with \t
 Plug 'vim-scripts/TaskList.vim'
+let g:tlTokenList = ['FIXME', 'TODO', 'NOTE']
 
 " For writing prose
 Plug 'junegunn/goyo.vim'
@@ -150,7 +166,8 @@ Plug 'junegunn/goyo.vim'
   endfunction
 
   command! ProseMode call ProseMode()
-  nmap \p :ProseMode<CR>
+"  nmap \p :ProseMode<CR>
+  nmap <Leader>p :Goyo<CR> 
 
 " Gitgutter
 Plug 'airblade/vim-gitgutter'
@@ -162,7 +179,9 @@ Plug 'airblade/vim-gitgutter'
   set updatetime=250 "affects a lot outside gitgutter
 
 " ALE - asynchronous linting
-Plug 'w0rp/ale'
+" toggle check with \a
+" autofix with \A
+Plug 'w0rp/ale', {'for': 'python'}
   "let g:ale_linters = {'python': ['autopep8']}
   let g:ale_fixers = {'python': ['autopep8', 'yapf', 'trim_whitespace', 'remove_trailing_lines']}
   let g:ale_python_autopep8_options = '--agressive'
@@ -175,6 +194,10 @@ Plug 'w0rp/ale'
   nmap <silent> \e <Plug>(ale_next_wrap)
   nmap <silent> \E <Plug>(ale_previous_wrap)
 
+" Black python formatting
+Plug 'python/black', {'for': 'python'}
+  nmap <Leader>bl :Black<CR> 
+
 " Colorscheme management
 Plug 'altercation/vim-colors-solarized'
 
@@ -183,6 +206,7 @@ Plug 'bling/vim-bufferline'
    let g:bufferline_echo = 0
    let g:bufferline_active_buffer_left = '^'
    let g:bufferline_active_buffer_right = ''
+   let g:bufferline_rotate=1
 
 " Statusline with lightline
 Plug 'itchyny/lightline.vim'
@@ -222,10 +246,25 @@ Plug 'itchyny/lightline.vim'
 " Works within vim and between vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
 
-"Live markdown preview with Ctrl-p
-Plug 'JamshedVesuna/vim-markdown-preview'
-let g:vim_markdown_preview_browser='Firefox'
-let g:vim_markdown_preview_github=1
+" Notational velocity equivalent using :NV
+" Depends on rg, fzf, fzf plugin
+" Use `brew install ripgrep fzf`
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/Alok/notational-fzf-vim'
+let g:nv_search_paths = ['~/Dropbox/docs/notes/notational_velocity/']
+let g:nv_default_extension = '.txt'
+let g:nv_use_short_pathnames = 1
+au BufRead,BufNewFile *.txt set filetype=markdown
+
+" Testing from vim
+Plug 'janko/vim-test', {'for': 'python'}
+  nmap <silent> <Leader>uu :TestNearest<CR> 
+  nmap <silent> <Leader>uf :TestFile<CR> 
+  nmap <silent> <Leader>us :TestSuite<CR> 
+  nmap <silent> <Leader>ul :TestLast<CR> 
+  nmap <silent> <Leader>ur :TestVisit<CR>  " return to last test
+  let test#strategy = "vimterminal"
+
 
 " Add plugins to &runtimepath
 call plug#end()

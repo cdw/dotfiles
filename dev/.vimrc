@@ -181,10 +181,11 @@ Plug 'airblade/vim-gitgutter'
 " ALE - asynchronous linting
 " toggle check with \a
 " autofix with \A
-Plug 'w0rp/ale', {'for': 'python'}
-  "let g:ale_linters = {'python': ['autopep8']}
-  let g:ale_fixers = {'python': ['autopep8', 'yapf', 'trim_whitespace', 'remove_trailing_lines']}
+Plug 'dense-analysis/ale', {'for': 'python'}
+  let g:ale_linters = {'python': ['flake8']}
+  let g:ale_fixers = {'python': ['autopep8', 'black', 'trim_whitespace', 'remove_trailing_lines']}
   let g:ale_python_autopep8_options = '--agressive'
+  let g:ale_fix_on_save = 1
   let g:ale_sign_error = 'X'
   let g:ale_sign_warning = '~'
   let g:ale_lint_on_enter = 0

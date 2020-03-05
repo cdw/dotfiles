@@ -32,9 +32,9 @@ if filereadable(expand("~/.vimlocal"))
   source ~/.vimlocal
 endif
 
-" Have a status line at the screen bottom
-" set statusline=%f%m%r%h%W\ %=\ [B%2.0n]\ [POS=%l,%v][%p%%]\ %{strftime(\"%H:%M\")} " now covered by lightline?
-set laststatus=2
+nmap <leader>R :source ~/.vim/vimrc<cr>
+
+
 
 
 "----------------------------
@@ -98,7 +98,6 @@ set whichwrap=b,s,h,l,<,>,~,[,]
 "             | | +-- "h" Normal and Visual (not recommended)
 "             | +-- <Space> Normal and Visual
 "             +-- <BS> Normal and Visual
-
 
 
 "----------------------------
@@ -241,6 +240,7 @@ Plug 'itchyny/lightline.vim'
     let a = g:bufferline_status_info.after
     return [b, c, a]
   endfunction
+set laststatus=2
 
 " tmux-navigator
 " Navigate panes using ^-<movement-key>

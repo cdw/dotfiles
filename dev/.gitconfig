@@ -12,3 +12,5 @@
 	tool = opendiff
 [credential]
 	helper = osxkeychain
+[github]
+	user = cdw

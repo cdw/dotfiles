@@ -64,6 +64,10 @@ shopt -s histappend  # append instead of overwrite
 # fuzzy finder support
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+########################
+# External customization
+########################
+
 #######
 # LOCAL 
 #######

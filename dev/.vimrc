@@ -1,4 +1,3 @@
-
 "----------------------------
 " FONT AND COLORATION
 " ---------------------------
@@ -13,9 +12,9 @@ syntax on
 filetype plugin indent on " Turn on plugins
 
 if has("macunix")
-    set gfn=Menlo:h11   " Gimme Menlo as the font
+    set gfn=Menlo:h11
 elseif has("unix")
-    set gfn=ProggyTinyTT\ 12 " Gimmie Proggy
+    set gfn=ProggyTinyTT\ 12
 endif
 
 
@@ -27,23 +26,33 @@ endif
 set directory=~/.vimbackup
 set backupdir=~/.vimbackup
 
+
+"----------------------------
+" LOCAL AND RECONFIGURATION
+" ---------------------------
+
 " load specifics to this host
 if filereadable(expand("~/.vimlocal"))
   source ~/.vimlocal
 endif
 
-nmap <leader>R :source ~/.vim/vimrc<cr>
+nmap <leader>R :source ~/.vimrc<cr>
 
 
+"----------------------------
+" SPELLING
+" ---------------------------
+
+set spell
+set spellfile=~/.vim/dict.en.add
+hi SpellBad ctermfg=202 ctermbg=233 
+" Correct spelling in insert mode
+inoremap <C-f> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 
 "----------------------------
 " OPTIONS
 " ---------------------------
-
-" Experimental 
-command! MakeTags !ctags -R .
-nmap <leader>R :source ~/.vim/vimrc<cr>
 
 " Tried and true
 set expandtab     "use 4 spaces instead of a tab
@@ -60,10 +69,6 @@ set is            " Search while typing
 set sc            " Show partial commands
 set smd           " Show mode
 set sm            " Show matching parens
-set spell         " Check my spelling
-hi SpellBad ctermfg=202 ctermbg=233 
-inoremap <C-f> <c-g>u<Esc>[s1z=`]a<c-g>u
-set spellfile=~/.vim/dict.en.add
 set path+=**      " Search down into subdirs
 set wildmenu      " Display all matching files on tab
 set complete-=i   " Don't search included files on autocomplete
@@ -133,7 +138,7 @@ nmap <Leader>n :NERDTreeToggle<CR>
 
 " Buffergator for Nerdtree but for buffers
 Plug 'jeetsukumaran/vim-buffergator', {'on': 'BuffergatorToggle'}
-nmap <Leader>bu :BuffergatorToggle<CR>
+nmap <Leader>bb :BuffergatorToggle<CR>
 let g:buffergator_suppress_keymaps = 1
 
 " LaTeX
@@ -151,31 +156,21 @@ let g:tlTokenList = ['FIXME', 'TODO', 'NOTE']
 
 " For writing prose
 Plug 'junegunn/goyo.vim'
-" Set a prose mode function call
-  function! ProseMode()
-      call goyo#execute(0, [])
-      set linebreak nolist
-      set spell noci nosi noai noshowmode noshowcmd
-      set complete+=s
-      set bg=light
-      if !has('gui_running')
-          let g:solarized_termcolors=256
-      endif
-          colors solarized
-  endfunction
-
-  command! ProseMode call ProseMode()
-"  nmap \p :ProseMode<CR>
   nmap <Leader>p :Goyo<CR> 
 
 " Gitgutter
 Plug 'airblade/vim-gitgutter'
-  let g:gitgutter_sign_added = '∙'
-  let g:gitgutter_sign_modified = '~'
-  let g:gitgutter_sign_removed = '∙'
-  let g:gitgutter_sign_modified_removed = '∙'
-  let g:gitgutter_realtime = 1
-  set updatetime=250 "affects a lot outside gitgutter
+  "let g:gitgutter_sign_added = '∙'
+  "let g:gitgutter_sign_modified = '~'
+  "let g:gitgutter_sign_removed = '∙'
+  "let g:gitgutter_sign_modified_removed = '∙'
+  "let g:gitgutter_realtime = 1
+  "set updatetime=250 "affects a lot outside gitgutter
+
+" Indent indicators
+Plug 'Yggdroot/indentLine'
+  let g:indentLine_char = '┆'
+  nmap <leader>i :IndentLinesToggle<CR>
 
 " ALE - asynchronous linting
 " toggle check with \a

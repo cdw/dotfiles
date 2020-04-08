@@ -1,6 +1,5 @@
 # Ain't nobody want these
 .DS_Store
-vim/session
 tmux/resurrect
 
 # Privacy matters
@@ -10,5 +9,12 @@ sync/
 .pypirc
 
 # These are controlled by plugin managers
-dev/.vim/
+dev/.vim/plugged/
 term/.tmux/
+
+# These are local
+dev/.vim/dict.en.add.spl
+dev/.vim/dict.en.add
+dev/.vim/session
+dev/.vim/tags
+dev/.vim/vimrc

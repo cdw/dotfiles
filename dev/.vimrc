@@ -1,24 +1,4 @@
 "----------------------------
-" FONT AND COLORATION
-" ---------------------------
-
-colorscheme solarized
-set background=light
-" swap background with <leader>bg
-map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-
-hi Search cterm=underline ctermfg=magenta ctermbg=black
-syntax on
-filetype plugin indent on " Turn on plugins
-
-if has("macunix")
-    set gfn=Menlo:h11
-elseif has("unix")
-    set gfn=ProggyTinyTT\ 12
-endif
-
-
-"----------------------------
 " DIRECTORY MANAGEMENT
 " ---------------------------
 
@@ -113,88 +93,37 @@ set whichwrap=b,s,h,l,<,>,~,[,]
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
-" Browse by tag, using \T
+"----------------------------
+" Generic vim mechanics
+
+" Simple
+Plug 'altercation/vim-colors-solarized'  "colorscheme
+Plug 'vim-scripts/Wombat'  "colorscheme
+Plug 'mhinz/vim-startify' "startscreen 
+Plug 'joereynolds/vim-minisnip' "snippet engine, see ~/.vim/minisnipshl
+Plug 'christoomey/vim-tmux-navigator' "navigate tmux/panes with ^-<movement-key>
+
+" Browse by tag
 Plug 'vim-scripts/taglist.vim'
-nmap <Leader>T :TlistToggle<CR>
+  nmap <Leader>T :TlistToggle<CR>
 
-" Code folding, relies on taglist
-Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-
-" Startscreen that uses sessions
-Plug 'mhinz/vim-startify'
-
-" Autocomplete python, in heavy flux
-" K to show docs for function
-Plug 'vim-scripts/pythoncomplete', { 'for': 'python' }
-Plug 'davidhalter/jedi-vim'
-let g:jedi#usages_command = "<leader>N"
-"Plug 'cjrh/vim-conda' " Let's us activate conda envs
-"nmap <Leader>c :CondaChangeEnv<CR>
-nmap <Leader>P :!python %<CR>
-
-" Nerdtree for pseudo-project pane
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-nmap <Leader>n :NERDTreeToggle<CR>
-
-" Buffergator for Nerdtree but for buffers
-Plug 'jeetsukumaran/vim-buffergator', {'on': 'BuffergatorToggle'}
-nmap <Leader>bb :BuffergatorToggle<CR>
-let g:buffergator_suppress_keymaps = 1
-
-" LaTeX
-Plug 'vim-latex/vim-latex', { 'for': 'latex'}
-
-" Markdown
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown'}
-
-" Outliner
-Plug 'vimoutliner/vimoutliner'
-
-" Tasklist, access with \t
-Plug 'vim-scripts/TaskList.vim'
-let g:tlTokenList = ['FIXME', 'TODO', 'NOTE']
-
-" For writing prose
-Plug 'junegunn/goyo.vim'
-  nmap <Leader>p :Goyo<CR> 
-
-" Gitgutter
-Plug 'airblade/vim-gitgutter'
-  "let g:gitgutter_sign_added = '∙'
-  "let g:gitgutter_sign_modified = '~'
-  "let g:gitgutter_sign_removed = '∙'
-  "let g:gitgutter_sign_modified_removed = '∙'
-  "let g:gitgutter_realtime = 1
-  "set updatetime=250 "affects a lot outside gitgutter
-
-" Indent indicators
+" Show indents
 Plug 'Yggdroot/indentLine'
   let g:indentLine_char = '┆'
   nmap <leader>i :IndentLinesToggle<CR>
 
-" ALE - asynchronous linting
-" toggle check with \a
-" autofix with \A
-Plug 'dense-analysis/ale', {'for': 'python'}
-  let g:ale_linters = {'python': ['flake8']}
-  let g:ale_fixers = {'python': ['autopep8', 'black', 'trim_whitespace', 'remove_trailing_lines']}
-  let g:ale_python_autopep8_options = '--agressive'
-  let g:ale_fix_on_save = 1
-  let g:ale_sign_error = 'X'
-  let g:ale_sign_warning = '~'
-  let g:ale_lint_on_enter = 0
-  let g:ale_enabled = 0
-  nmap <leader>a :ALEToggle<CR>
-  nmap <leader>A :ALEFix<CR>
-  nmap <silent> \e <Plug>(ale_next_wrap)
-  nmap <silent> \E <Plug>(ale_previous_wrap)
+" Nerdtree file pane
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+  nmap <Leader>n :NERDTreeToggle<CR>
 
-" Black python formatting
-Plug 'python/black', {'for': 'python'}
-  nmap <Leader>bl :Black<CR> 
+" Buffergator, Nerdtree for buffers
+Plug 'jeetsukumaran/vim-buffergator', {'on': 'BuffergatorToggle'}
+  nmap <Leader>bb :BuffergatorToggle<CR>
+  let g:buffergator_suppress_keymaps = 1
 
-" Colorscheme management
-Plug 'altercation/vim-colors-solarized'
+" For writing prose
+Plug 'junegunn/goyo.vim'
+  nmap <Leader>p :Goyo<CR> 
 
 " Buffer list in statusline
 Plug 'bling/vim-bufferline'
@@ -237,31 +166,120 @@ Plug 'itchyny/lightline.vim'
   endfunction
 set laststatus=2
 
-" tmux-navigator
-" Navigate panes using ^-<movement-key>
-" Works within vim and between vim and tmux
-Plug 'christoomey/vim-tmux-navigator'
+
+"----------------------------
+" Organizational
+
+" Outliner
+Plug 'vimoutliner/vimoutliner'
+
+" Tasklist, access with \t
+Plug 'vim-scripts/TaskList.vim'
+  let g:tlTokenList = ['FIXME', 'TODO', 'NOTE']
 
 " Notational velocity equivalent using :NV
 " Depends on rg, fzf, fzf plugin
 " Use `brew install ripgrep fzf`
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/Alok/notational-fzf-vim'
-let g:nv_search_paths = ['~/Dropbox/docs/notes/notational_velocity/']
-let g:nv_default_extension = '.txt'
-let g:nv_use_short_pathnames = 1
-au BufRead,BufNewFile *.txt set filetype=markdown
+  let g:nv_search_paths = ['~/Dropbox/docs/notes/notational_velocity/']
+  let g:nv_default_extension = '.txt'
+  let g:nv_use_short_pathnames = 1
+  au BufRead,BufNewFile *.txt set filetype=markdown
+
+
+"----------------------------
+" GIT
+
+" Fugitive
+Plug 'tpope/vim-fugitive'
+
+" Gitgutter
+Plug 'airblade/vim-gitgutter'
+  let g:gitgutter_realtime = 1
+  let g:gitgutter_sign_added = '∙'
+  let g:gitgutter_sign_modified = '~'
+  let g:gitgutter_sign_removed = '∙'
+  let g:gitgutter_sign_modified_removed = '∙'
+
+
+"----------------------------
+" Python
+
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' } " relies on taglist
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'vim-python/python-syntax', { 'for': 'python'}
+nmap <Leader>P :!python %<CR>
+
+" Autocomplete python, in heavy flux
+" K to show docs for function
+Plug 'davidhalter/jedi-vim'
+  let g:jedi#usages_command = "<leader>N"
 
 " Testing from vim
 Plug 'janko/vim-test', {'for': 'python'}
   nmap <silent> <Leader>uu :TestNearest<CR> 
   nmap <silent> <Leader>uf :TestFile<CR> 
   nmap <silent> <Leader>us :TestSuite<CR> 
-  nmap <silent> <Leader>ul :TestLast<CR> 
   nmap <silent> <Leader>ur :TestVisit<CR>  " return to last test
   let test#strategy = "vimterminal"
+
+" ALE - asynchronous linting
+" toggle check with \a
+" autofix with \A
+Plug 'dense-analysis/ale', {'for': 'python'}
+  let g:ale_linters = {'python': ['flake8']}
+  let g:ale_fixers = {'python': ['autopep8', 'black', 'trim_whitespace', 'remove_trailing_lines']}
+  let g:ale_fix_on_save = 1
+  let g:ale_enabled = 0
+  nmap <leader>a :ALEToggle<CR>
+  nmap <leader>A :ALEFix<CR>
+  nmap <silent> \e <Plug>(ale_next_wrap)
+  nmap <silent> \E <Plug>(ale_previous_wrap)
+
+" Black python formatting
+"Plug 'python/black', {'for': 'python', 'tag': '19.10b0' }
+"if has("unix")
+"    let g:black_virtualenv="~/.vim_black"
+"endif
+"  nmap <Leader>bl :Black<CR> 
+
+
+"----------------------------
+" Other file types
+
+" LaTeX
+Plug 'vim-latex/vim-latex', { 'for': 'latex'}
+
+" Markdown
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown'}
+  let g:vim_markdown_folding_style_pythonic = 1
+  let g:vim_markdown_conceal = 0
+  let g:vim_markdown_conceal_code_blocks = 0
+
+" OpenSCAD
+Plug 'torrancew/vim-openscad', {'for': 'scad'}
 
 
 " Add plugins to &runtimepath
 call plug#end()
 
+
+"----------------------------
+" FONT AND COLORATION
+" ---------------------------
+
+syntax enable
+set background=light
+" swap background with <leader>bg
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+colorscheme solarized
+
+hi Search cterm=underline ctermfg=magenta ctermbg=black
+filetype plugin indent on " Turn on plugins
+
+if has("macunix")
+    set gfn=Menlo:h11
+elseif has("unix")
+    set gfn=ProggyTinyTT\ 12
+endif

@@ -207,8 +207,11 @@ Plug 'airblade/vim-gitgutter'
 " Python
 
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' } " relies on taglist
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'vim-python/python-syntax', { 'for': 'python'}
+Plug 'python-mode/python-mode', { 'for': 'python'}
+    let g:pymode_lint = 0
+    let g:pymode_options_max_line_length = 127
+    let g:pymode_breakpoint_bind = '<leader>br'
 nmap <Leader>P :!python %<CR>
 
 " Autocomplete python, in heavy flux
@@ -238,11 +241,11 @@ Plug 'dense-analysis/ale', {'for': 'python'}
   nmap <silent> \E <Plug>(ale_previous_wrap)
 
 " Black python formatting
-"Plug 'python/black', {'for': 'python', 'tag': '19.10b0' }
+Plug 'python/black', {'for': 'python', 'tag': '19.10b0' }
 "if has("unix")
 "    let g:black_virtualenv="~/.vim_black"
 "endif
-"  nmap <Leader>bl :Black<CR> 
+nmap <Leader>bl :Black<CR> 
 
 
 "----------------------------

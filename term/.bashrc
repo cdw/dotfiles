@@ -43,15 +43,23 @@ set mark-symlinked-directories on   # cd into symlinks without double tab
 # We like the vim
 export EDITOR=vim
 
+# Make git log work better
+alias adog='git log --all --decorate --oneline --graph'
+
+# Let us quicklook
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ql="qlmanage -p &>/dev/null"
+fi
 
 ##########
 # HISTORY 
 ##########
 
 # Search bash history with up/down arrows
-bind '"\e[A"':history-search-backward
-bind '"\e[B"':history-search-forward
-
+if [ -t 1 ]; then
+    bind '"\e[A"':history-search-backward
+    bind '"\e[B"':history-search-forward
+fi
 # Have a good memory
 export HISTFILESIZE=10000
 

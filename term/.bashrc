@@ -37,7 +37,9 @@ alias la='ls -Al'  # la shows all files (including dot files)
 alias j='jobs -l'                   # j shows jobs
 alias which='type -a'               # which shows what a command resolves to 
 alias ..='cd ..'                    # .. bumps you up a directory
+alias ...='cd ...'                  # ... up two
 alias cpwd='pwd|tr -d "\n"|pbcopy'  # copy current dir to clipboard
+alias cl='clear'                    # clear screen
 set mark-symlinked-directories on   # cd into symlinks without double tab
 
 # We like the vim

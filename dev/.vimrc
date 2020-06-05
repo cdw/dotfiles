@@ -103,7 +103,7 @@ Plug 'mhinz/vim-startify' "startscreen
 Plug 'joereynolds/vim-minisnip' "snippet engine, see ~/.vim/minisnipshl
 Plug 'christoomey/vim-tmux-navigator' "navigate tmux/panes with ^-<movement-key>
 
-" Browse by tag
+    " Browse by tag
 Plug 'vim-scripts/taglist.vim'
   nmap <Leader>T :TlistToggle<CR>
 

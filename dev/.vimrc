@@ -242,9 +242,9 @@ Plug 'dense-analysis/ale', {'for': 'python'}
 
 " Black python formatting
 Plug 'python/black', {'for': 'python', 'tag': '19.10b0' }
-"if has("unix")
-"    let g:black_virtualenv="~/.vim_black"
-"endif
+if system('uname') =~ "Linux"
+    let g:black_virtualenv="~/.vim_black"
+endif
 nmap <Leader>bl :Black<CR> 
 
 

@@ -63,8 +63,8 @@ nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 
 " When typing text, treat display lines as logical lines
-au FileType html,tex,mkd noremap <buffer> j gj
-au FileType html,tex,mkd noremap <buffer> k gk
+au FileType html,tex,markdown noremap <buffer> j gj
+au FileType html,tex,markdown noremap <buffer> k gk
 " When typing text, soft break at word boundaries
 au FileType html,tex,mkd set linebreak nolist 
 " Use the mouse in the terminal (a=in all modes)

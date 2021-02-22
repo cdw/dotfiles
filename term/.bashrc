@@ -63,7 +63,7 @@ if [ -t 1 ]; then
     bind '"\e[B"':history-search-forward
 fi
 # Have a good memory
-export HISTFILESIZE=10000
+export HISTFILESIZE=100000
 
 # Dynamically update .bash_history
 # can display with watch -n 1 -t tail -n 3 .bash_history

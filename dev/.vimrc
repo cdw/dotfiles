@@ -25,7 +25,7 @@ nmap <leader>R :source ~/.vimrc<cr>
 
 set spell
 set spellfile=~/.vim/dict.en.add
-hi SpellBad ctermfg=202 ctermbg=233 
+hi SpellBad ctermfg=202 ctermbg=233
 " Correct spelling in insert mode
 inoremap <C-f> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -66,13 +66,13 @@ nmap <C-p> :bprev<CR>
 au FileType html,tex,markdown noremap <buffer> j gj
 au FileType html,tex,markdown noremap <buffer> k gk
 " When typing text, soft break at word boundaries
-au FileType html,tex,mkd set linebreak nolist 
+au FileType html,tex,mkd set linebreak nolist
 " Use the mouse in the terminal (a=in all modes)
-set mouse=a 
+set mouse=a
 " Allow backspace to join lines, remove indents, go past start of insert
 set backspace=eol,indent,start
 " What do we want to wrap? Everything
-set whichwrap=b,s,h,l,<,>,~,[,] 
+set whichwrap=b,s,h,l,<,>,~,[,]
 "             | | | | | | | | |
 "             | | | | | | | | +-- "]" Insert and Replace
 "             | | | | | | | +-- "[" Insert and Replace
@@ -99,7 +99,7 @@ call plug#begin('~/.vim/plugged')
 " Simple
 Plug 'altercation/vim-colors-solarized'  "colorscheme
 Plug 'vim-scripts/Wombat'  "colorscheme
-Plug 'mhinz/vim-startify' "startscreen 
+Plug 'mhinz/vim-startify' "startscreen
 Plug 'joereynolds/vim-minisnip' "snippet engine, see ~/.vim/minisnipshl
 Plug 'christoomey/vim-tmux-navigator' "navigate tmux/panes with ^-<movement-key>
 
@@ -123,7 +123,7 @@ Plug 'jeetsukumaran/vim-buffergator', {'on': 'BuffergatorToggle'}
 
 " For writing prose
 Plug 'junegunn/goyo.vim'
-  nmap <Leader>p :Goyo<CR> 
+  nmap <Leader>p :Goyo<CR>
 
 " Buffer list in statusline
 Plug 'bling/vim-bufferline'
@@ -137,7 +137,7 @@ Plug 'itchyny/lightline.vim'
     let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
-      \   'left': [[ 'mode', 'paste' ], 
+      \   'left': [[ 'mode', 'paste' ],
       \            [ 'readonly', 'filename', 'modified'],
       \            ['bufferline']],
       \   'right': [['lineinfo'],

@@ -1,0 +1,307 @@
+﻿"Faced with a choice, do both things."
+%
+Try to make the problem worse to understand how you might make it better.
+%
+Do nothing for as long as possible.
+%
+Break a big thing up into smaller pieces.
+%
+Remember that models don't necessarily correspond with reality.
+%
+Generate alternative solutions and pick the best.
+%
+Can you make this program do one thing instead of two?
+%
+Is this abstraction delivering enough benefit?
+%
+Are you solving the right problem?
+%
+Are you solving the problem you have or the problem you'd like to have?
+%
+Can you automate this?
+%
+"If it doesn't work, it doesn't matter how fast it doesn't work."
+%
+Are you clear about what you are trying to build?
+%
+Could the documentation be wrong?
+%
+Does the code actually do what the comments say it should?
+%
+Is this premature optimization?
+%
+Write a plan then throw it away.
+%
+Is this what the customer wants or is it what he needs?
+%
+Can you build something to help you understand the problem?
+%
+Before software can be reusable it first has to be usable.
+%
+Does this need a program or could I use another tool?
+%
+"First, solve the problem. Then, write the code."
+%
+Simplicity is prerequisite for reliability.
+%
+Are you getting confused by the complexities of your own making?
+%
+Don't worry about what anybody else is doing.
+%
+"Programs must be written for people to read, and only incidentally for machines to execute."
+%
+"The key to performance is elegance, not battalions of special cases."
+%
+Watch out for off-by-one bugs where loops are used.
+%
+Can you use brute force for now and find a fancy algorithm later?
+%
+Is it broken by design?
+%
+Can you find an analogy or metaphor to explore this problem?
+%
+When did it last work? What has changed?
+%
+What's the worse thing that could happen next?
+%
+The simplest explanation is most likely the correct one.
+%
+What would a layman or somebody with less experience do?
+%
+Is this code really necessary?
+%
+Can I simplify the problem somehow?
+%
+Only change one thing at a time. Try to predict what will happen with each change.
+%
+Stop guessing and look at the facts.
+%
+Are you fooling yourself?
+%
+Write some more unit tests.
+%
+Keep a written log of every little thing you change and any results.
+%
+Is there a better algorithm? Consult the computer science literature.
+%
+Designing the right data structure is often more important than designing the right code.
+%
+If you are thinking and not writing you only think you are thinking.
+%
+"Collect together all the information, pictures, scribbles and diagrams. Make a scrapbook or pin them to the wall."
+%
+Is this a symptom or a root cause?
+%
+Try recreating this program section from scratch.
+%
+"Try to write a small, reproducible code sample with just the salient parts and all other complexity removed."
+%
+"Is this a numerical problem? Think about rounding, division by zero, overflow and floating point errors."
+%
+Are you using the correct configuration settings?
+%
+"Is this a versioning problem? Check the versions of your operating system, tools and libraries."
+%
+"If you had time to refactor this code, what would you change?"
+%
+How did they do it without computers?
+%
+Don't assume that the bug was caused by somebody else.
+%
+Draw a picture of the problem with coloured pens.
+%
+Try to reproduce the problem on a different computer or different hardware.
+%
+What's the simplest thing that could possibly work?
+%
+"Read the error message slowly, carefully and deliberately. What does it actually say?"
+%
+Can you add code that will provide more information about the problem?
+%
+Look hard at any loops. Under what circumstances can they terminate?
+%
+Rollback or undo the last change.
+%
+Go and talk to somebody who isn't a programmer.
+%
+Try to imagine what the world would look like if you had already solved the problem.
+%
+Just because other people think it's a bug doesn't mean it's really a bug.
+%
+"Perform the calculation or task manually with a calculator, pencil and paper."
+%
+What can you do to contain a problem so that things can't get any worse?
+%
+Can you adapt something that you already have?
+%
+Read the documentation properly. Read it again.
+%
+Forget about optimizing your code.
+%
+Solve the problem directly.
+%
+Board up rabbit holes.
+%
+Build the theory of the problem.
+%
+Shear off a layer.
+%
+Get red and green right before mixing yellow.
+%
+Add constraints.
+%
+Mark it WONTFIX.
+%
+"Verify your fears, explicitly."
+%
+Take a closer look.
+%
+Is it the bug you think it is?
+%
+Is it a typo?
+%
+Stop and think.
+%
+"If you lack motivation, find the most interesting thing in the project, start on that, and branch from there."
+%
+Work append-only.
+%
+Change your mind.
+%
+Look for ways to chain tools.
+%
+Backtrack.
+%
+Flip the problem around.
+%
+Work forward from where the unfinished part of the code suggests you should.
+%
+List dependencies to determine order of completion.
+%
+Try the naive method first.
+%
+Do it both ways.
+%
+Verify that your assumptions about the outside world are correct.
+%
+Get water flowing through the pipe.
+%
+Every bug hunt is at worst a log time search through the code base.
+%
+Write down everything you know about the problem.
+%
+"This process usually converges: If you're stuck, finish some remaining piece. Then go back and check to see what new possibilities opened up. Repeat."
+%
+"Form hypothesis, test hypothesis, repeat."
+%
+Have goals and subdivide them.
+%
+Do it the wrong way.
+%
+Put the problem aside and work on something else.
+%
+The computing scientist’s main challenge is not to get confused by the complexities of his own making.
+%
+"The cheapest, fastest, and most reliable components are those that aren’t there."
+%
+"When in doubt, use brute force."
+%
+Deleted code is debugged code.
+%
+Controlling complexity is the essence of computer programming.
+%
+"If you’re willing to restrict the flexibility of your approach, you can almost always do something better."
+%
+A program that produces incorrect results twice as fast is infinitely slower.
+%
+Life is too short to run proprietary software.
+%
+Simplicity is prerequisite for reliability.
+%
+"First, solve the problem. Then, write the code."
+%
+You can’t trust code that you did not totally create yourself.
+%
+Simplicity is the ultimate sophistication.
+%
+Debugging time increases as a square of the program’s size.
+%
+"I have always found that plans are useless, but planning is indispensable."
+%
+The unavoidable price of reliability is simplicity.
+%
+The ability to simplify means to eliminate the unnecessary so that the necessary may speak.
+%
+Trying to outsmart a compiler defeats much of the purpose of using one.
+%
+Software sucks because users demand it to.
+%
+The only sin is to make a choice without knowing you are making one.
+%
+The most important single aspect of software development is to be clear about what you are trying to build.
+%
+"The purpose of software engineering is to control complexity, not to create it."
+%
+"If it doesn’t work, it doesn’t matter how fast it doesn’t work."
+%
+"Complexity has nothing to do with intelligence, simplicity does."
+%
+"Simplicity is hard to build, easy to use, and hard to charge for. Complexity is easy to build, hard to use, and easy to charge for."
+%
+The whole point of getting things done is knowing what to leave undone.
+%
+"When in doubt, leave it out."
+%
+"As a rule, software systems do not work well until they have been used, and have failed repeatedly, in real applications."
+%
+"As a programmer, it is your job to put yourself out of business. What you do today can be automated tomorrow."
+%
+A good way to have good ideas is by being unoriginal.
+%
+"The trick is to fix the problem you have, rather than the problem you want."
+%
+"In programming the hard part isn’t solving problems, but deciding what problems to solve."
+%
+It is not that uncommon for the cost of an abstraction to outweigh the benefit it delivers. Kill one today!
+%
+So much complexity in software comes from trying to make one thing do two things.
+%
+There’s nothing in computing that can’t be broken by another level of indirection.
+%
+"Premature optimizations can be troublesome to revert, but premature generalizations are often near impossible."
+%
+"When debugging, novices insert corrective code; experts remove defective code."
+%
+There has never been an unexpectedly short debugging period in the history of computers.
+%
+The wages of sin is debugging.
+%
+"If you're as clever as you can be when you write it, how will you ever debug it?"
+%
+Premature optimization is the root of all evil.
+%
+"The three most important aspects of debugging and real estate are the same: Location, Location, and Location."
+%
+Each new user of a new system uncovers a new class of bugs.
+%
+What does the rubber duck have to say about this?
+%
+Get some sleep
+%
+"The inability to concisely name an abstraction is an indication of its complexity, not that naming things is hard. "
+%
+The best code is the code you don't write
+%
+Could you explain your code in a noisy bar? 
+%
+"Forget about 'perfect', but never forget about 'better' . "
+%
+Fancy doesn't mean readable. 
+%
+Read the error message. 
+%
+"Restart your computer, clear the cache. Rule out the easy answers early. "
+%
+Maybe the client doesn't want what they think they want. 
+%
+

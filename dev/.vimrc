@@ -98,7 +98,6 @@ call plug#begin('~/.vim/plugged')
 
 " Simple
 Plug 'altercation/vim-colors-solarized'  "colorscheme
-Plug 'vim-scripts/Wombat'  "colorscheme
 Plug 'mhinz/vim-startify' "startscreen
 Plug 'joereynolds/vim-minisnip' "snippet engine, see ~/.vim/minisnipshl
 Plug 'christoomey/vim-tmux-navigator' "navigate tmux/panes with ^-<movement-key>
@@ -110,7 +109,6 @@ Plug 'vim-scripts/taglist.vim'
 " Show indents
 Plug 'Yggdroot/indentLine'
   let g:indentLine_char = '┆'
-  nmap <leader>i :IndentLinesToggle<CR>
 
 " Nerdtree file pane
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -177,16 +175,8 @@ Plug 'vimoutliner/vimoutliner'
 Plug 'vim-scripts/TaskList.vim'
   let g:tlTokenList = ['FIXME', 'TODO', 'NOTE']
 
-" Notational velocity equivalent using :NV
-" Depends on rg, fzf, fzf plugin
-" Use `brew install ripgrep fzf`
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'https://github.com/Alok/notational-fzf-vim'
-  let g:nv_search_paths = ['~/Dropbox/docs/notes/notational_velocity/']
-  let g:nv_default_extension = '.txt'
-  let g:nv_use_short_pathnames = 1
-  au BufRead,BufNewFile *.txt set filetype=markdown
-
+" Checkboxes
+Plug 'jkramer/vim-checkbox'
 
 "----------------------------
 " GIT
@@ -208,22 +198,22 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' } " relies on taglist
 Plug 'vim-python/python-syntax', { 'for': 'python'}
-Plug 'python-mode/python-mode', { 'for': 'python'}
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
     let g:pymode_lint = 0
     let g:pymode_options_max_line_length = 127
     let g:pymode_breakpoint_bind = '<leader>br'
+    let g:pymode_python = 'python3'
 nmap <Leader>P :!python %<CR>
 
 " Autocomplete python, in heavy flux
 " K to show docs for function
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', {'for': 'markdown'}
   let g:jedi#usages_command = "<leader>N"
 
 " Testing from vim
 Plug 'janko/vim-test', {'for': 'python'}
-  nmap <silent> <Leader>uu :TestNearest<CR> 
-  nmap <silent> <Leader>uf :TestFile<CR> 
-  nmap <silent> <Leader>us :TestSuite<CR> 
+  nmap <silent> <Leader>uf :TestFile<CR>
+  nmap <silent> <Leader>us :TestSuite<CR>
   nmap <silent> <Leader>ur :TestVisit<CR>  " return to last test
   let test#strategy = "vimterminal"
 
@@ -259,10 +249,17 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown'}
   let g:vim_markdown_folding_style_pythonic = 1
   let g:vim_markdown_conceal = 0
   let g:vim_markdown_conceal_code_blocks = 0
+  autocmd FileType markdown setlocal linebreak
+if has("macunix")
+    nnoremap <leader>m :silent !open -a Marked\ 2.app '%:p'<cr>
+endif
+
 
 " OpenSCAD
 Plug 'torrancew/vim-openscad', {'for': 'scad'}
 
+" HTML
+Plug 'othree/html5.vim', {'for': 'html'}
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -276,8 +273,8 @@ syntax enable
 set background=light
 " swap background with <leader>bg
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-colorscheme solarized
 
+colorscheme solarized
 hi Search cterm=underline ctermfg=magenta ctermbg=black
 filetype plugin indent on " Turn on plugins
 

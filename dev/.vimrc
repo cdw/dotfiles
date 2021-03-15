@@ -220,9 +220,15 @@ Plug 'janko/vim-test', {'for': 'python'}
 " ALE - asynchronous linting
 " toggle check with \a
 " autofix with \A
-Plug 'dense-analysis/ale', {'for': 'python'}
-  let g:ale_linters = {'python': ['flake8']}
-  let g:ale_fixers = {'python': ['autopep8', 'black', 'trim_whitespace', 'remove_trailing_lines']}
+Plug 'dense-analysis/ale', {'for': ['python', 'markdown']}
+  let g:ale_linters = {
+    \ 'python': ['flake8'],
+    \ 'markdown': ['markdownlint']
+    \ }
+  let g:ale_fixers = {
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'python': ['autopep8', 'black'],
+    \ }
   let g:ale_fix_on_save = 1
   let g:ale_enabled = 0
   nmap <leader>a :ALEToggle<CR>

@@ -102,7 +102,7 @@ Plug 'joereynolds/vim-minisnip' "snippet engine, see ~/.vim/minisnipshl
 Plug 'christoomey/vim-tmux-navigator' "navigate tmux/panes with ^-<movement-key>
 Plug 'qpkorr/vim-renamer' ":Renamer {dir} to edit names of files in a dir
 
-    " Browse by tag
+" Browse by tag
 Plug 'vim-scripts/taglist.vim'
   nmap <Leader>T :TlistToggle<CR>
 
@@ -140,7 +140,7 @@ Plug 'itchyny/lightline.vim'
       \            ['bufferline']],
       \   'right': [['lineinfo'],
       \             ['percent'],
-      \             ['filetype', 'statusclock']]
+      \             ['filetype']]
       \  },
       \ 'component_type': {
       \   'bufferline': 'tabsel',
@@ -148,13 +148,7 @@ Plug 'itchyny/lightline.vim'
       \ 'component_expand': {
       \   'bufferline': 'LightlineBufferline',
       \  },
-      \ 'component_function': {
-      \   'statusclock': 'StatusClock',
-      \  },
       \ }
-  function! StatusClock()
-    return strftime("%H:%M")
-  endfunction
   function! LightlineBufferline()
   call bufferline#refresh_status()
     let b = g:bufferline_status_info.before

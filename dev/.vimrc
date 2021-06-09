@@ -40,7 +40,6 @@ set shiftwidth=4  "ditto
 set softtabstop=4 "ditto
 set tabstop=4     "ditto
 set smarttab      "ditto
-set autoindent    "carry indenting to next line
 set cinkeys-=0#   "comments don't fiddle with indenting
 set guioptions-=T " Get rid of the toolbar
 set nu            " Line numbers, remove with :set nonumber

@@ -100,6 +100,7 @@ Plug 'altercation/vim-colors-solarized'  "colorscheme
 Plug 'mhinz/vim-startify' "startscreen
 Plug 'joereynolds/vim-minisnip' "snippet engine, see ~/.vim/minisnipshl
 Plug 'christoomey/vim-tmux-navigator' "navigate tmux/panes with ^-<movement-key>
+Plug 'qpkorr/vim-renamer' ":Renamer {dir} to edit names of files in a dir
 
     " Browse by tag
 Plug 'vim-scripts/taglist.vim'

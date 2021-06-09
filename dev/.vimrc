@@ -47,7 +47,6 @@ set nu            " Line numbers, remove with :set nonumber
 set hls           " Highlight searches
 set is            " Search while typing
 set sc            " Show partial commands
-set smd           " Show mode
 set sm            " Show matching parens
 set path+=**      " Search down into subdirs
 set wildmenu      " Display all matching files on tab

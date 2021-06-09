@@ -114,11 +114,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   nmap <Leader>n :NERDTreeToggle<CR>
 
-" Buffergator, Nerdtree for buffers
-Plug 'jeetsukumaran/vim-buffergator', {'on': 'BuffergatorToggle'}
-  nmap <Leader>bb :BuffergatorToggle<CR>
-  let g:buffergator_suppress_keymaps = 1
-
 " For writing prose
 Plug 'junegunn/goyo.vim'
   nmap <Leader>p :Goyo<CR>

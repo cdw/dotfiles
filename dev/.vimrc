@@ -50,6 +50,7 @@ set sm            " Show matching parens
 set path+=**      " Search down into subdirs
 set wildmenu      " Display all matching files on tab
 set complete-=i   " Don't search included files on autocomplete
+set belloff=all   " No flashing or sound
 
 
 "----------------------------

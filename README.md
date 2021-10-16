@@ -5,7 +5,6 @@ Most of the modules here are intended to be linked with `stow` as in `stow -t ~/
 - dev
 - linux
 - python
-- sync
 - term
 
 Where the package contents are hopefully obvious. 

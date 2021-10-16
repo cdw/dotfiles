@@ -4,7 +4,6 @@ tmux/resurrect
 
 # Privacy matters
 aws/
-sync/
 .ssh
 /term/.gnupg
 /term/.gist

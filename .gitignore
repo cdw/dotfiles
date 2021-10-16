@@ -6,15 +6,30 @@ tmux/resurrect
 aws/
 sync/
 .ssh
+/term/.gnupg
+/term/.gist
 .pypirc
 
 # These are controlled by plugin managers
 dev/.vim/plugged/
+dev/.vim/black
 term/.tmux/
 
 # These are local
-dev/.vim/dict.en.add.spl
-dev/.vim/dict.en.add
-dev/.vim/session
-dev/.vim/tags
-dev/.vim/vimrc
+/dev/.vim/dict.en.add.spl
+/dev/.vim/dict.en.add
+/dev/.vim/session
+/dev/.vim/tags
+/dev/.vim/vimrc #dot version is stored
+/wallpapers
+
+# .config is being more used
+/dev/.config/htop
+/dev/.config/.mono
+/dev/.config/xbuild
+/dev/.config/stetic
+/dev/.config/StardewValley
+/dev/.config/iterm2
+/dev/.config/configstore
+/dev/.config/coc
+/macos/alfred

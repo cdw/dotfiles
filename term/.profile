@@ -10,10 +10,3 @@ fi
 # ENVIRONMENT VARIABLES
 #######################
 
-# Add Homebrew binary location
-export PATH=/usr/local/bin:$PATH
-
-# Where is our home java directory? Mostly for bioformats
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-

@@ -53,6 +53,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias ql="qlmanage -p &>/dev/null"
 fi
 
+# Don't warn about using bash on mac
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
+
 ##########
 # HISTORY 
 ##########
@@ -71,9 +76,6 @@ export HISTCONTROL=ignoredups:erasedups  # ignore dupes
 shopt -s histappend  # append instead of overwrite
 #export PROMPT_COMMAND="${PROMPT_COMMAND} history -a;"  # write as you go
 
-# fuzzy finder support
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 ########################
 # External customization
 ########################
@@ -85,3 +87,7 @@ shopt -s histappend  # append instead of overwrite
 if [ -f ~/.bash_local ]; then
     source ~/.bash_local
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+

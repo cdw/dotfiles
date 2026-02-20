@@ -2,25 +2,13 @@
 KNKX, http://live.wostreaming.net/direct/ppm-knkxfmmp3-ibc1
 KNKX: Jazz24, http://live.wostreaming.net/direct/ppm-jazz24mp3-ibc1
 KING: Classical, http://classicalking.streamguys1.com/king-fm-mp3
-KING: Evergreen, http://classicalking.streamguys1.com/evergreen-mp3-96k
 KEXP, http://live-mp3-128.kexp.org/
 KUOW, http://playerservices.streamtheworld.com/pls/KUOWFM_HIGH_MP3.pls
 Bluemars, http://streams.echoesofbluemars.org:8000/bluemars.m3u
 Cryosleep, http://streams.echoesofbluemars.org:8000/cryosleep.m3u
 Voices Within, http://streams.echoesofbluemars.org:8000/voicesfromwithin.m3u
-KALX: UC Berkeley, http://stream.kalx.berkeley.edu:8000/kalx-128.mp3
-KAOS: Evergreen State, http://205.134.192.90:8930/
-WZBC: Boston College, http://amber.streamguys.com:4860/
-KCRW, http://media.kcrw.com/pls/kcrwsimulcast.pls
-KCRW: Eclectic24, http://media.kcrw.com/pls/kcrwmusic.pls
-KCRW: News24, http://media.kcrw.com/pls/kcrwnews.pls
-#SomaF: Groove Salad (Chillout), http://somafm.com/startstream=groovesalad.pls
-#SomaFM: Beat Blender (House), http://somafm.com/startstream=beatblender.pls
-#SomaFM: Cliq Hop, http://somafm.com/startstream=cliqhop.pls
-#SomaFM: Sonic Universe (Jazz), http://somafm.com/startstream=sonicuniverse.pls
-#SomaFM: Tags Trance Trip (Progressive), http://somafm.com/tagstrance.pls
-#SomaFM: Illinois Street Lounge (Lounge), http://somafm.com/illstreet.pls
-#SomaFM: Secret Agent (Downtempo), http://somafm.com/secretagent.pls
-#SomaFM: Covers, http://somafm.com/covers.pls
-#SomaFM: Digitalis (Rock), http://somafm.com/digitalis.pls
-#SomaFM: PopTron! (Pop), http://somafm.com/poptron.pls
+BBC World Service, http://stream.live.vc.bbcmedia.co.uk/bbc_world_service
+BBC Radio 4, http://stream.live.vc.bbcmedia.co.uk/bbc_radio_fourfm
+SomaFM: Chill, http://somafm.com/startstream=groovesalad.pls
+SomaFM: GrooveSalad, http://somafm.com/gsclassic.pls
+SomaFM: Jazz, http://somafm.com/startstream=sonicuniverse.pls

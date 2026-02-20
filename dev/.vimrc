@@ -16,7 +16,7 @@ if filereadable(expand("~/.vimlocal"))
   source ~/.vimlocal
 endif
 
-nmap <leader>R :source ~/.vimrc<cr>
+noremap <leader>R :source ~/.vimrc<cr>
 
 
 "----------------------------
@@ -57,15 +57,18 @@ set belloff=all   " No flashing or sound
 " NAVIGATION
 " ---------------------------
 
+" Esc alternative
+inoremap jj <ESC>
+
 " Move between open buffers.
-nmap <C-n> :bnext<CR>
-nmap <C-p> :bprev<CR>
+noremap <C-n> :bnext<CR>
+noremap <C-p> :bprev<CR>
 
 " When typing text, treat display lines as logical lines
-au FileType html,tex,markdown noremap <buffer> j gj
-au FileType html,tex,markdown noremap <buffer> k gk
+autocmd FileType html,tex,markdown noremap <buffer> j gj
+autocmd FileType html,tex,markdown noremap <buffer> k gk
 " When typing text, soft break at word boundaries
-au FileType html,tex,mkd set linebreak nolist
+autocmd FileType html,tex,mkd set linebreak nolist
 " Use the mouse in the terminal (a=in all modes)
 set mouse=a
 " Allow backspace to join lines, remove indents, go past start of insert
@@ -109,49 +112,43 @@ Plug 'vim-scripts/taglist.vim'
 " Show indents
 Plug 'Yggdroot/indentLine'
   let g:indentLine_char = '┆'
+  autocmd Filetype json let g:indentLine_enabled = 0
 
 " Nerdtree file pane
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-  nmap <Leader>n :NERDTreeToggle<CR>
+  noremap <Leader>n :NERDTreeToggle<CR>
 
 " For writing prose
 Plug 'junegunn/goyo.vim'
-  nmap <Leader>p :Goyo<CR>
+  noremap <Leader>p :Goyo<CR>
 
-" Buffer list in statusline
-Plug 'bling/vim-bufferline'
-   let g:bufferline_echo = 0
-   let g:bufferline_active_buffer_left = '^'
-   let g:bufferline_active_buffer_right = ''
-   let g:bufferline_rotate=1
+" Buffer list in tabline
+Plug 'mengelbrecht/lightline-bufferline'
 
 " Statusline with lightline
 Plug 'itchyny/lightline.vim'
-    let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [[ 'mode', 'paste' ],
-      \            [ 'readonly', 'filename', 'modified'],
-      \            ['bufferline']],
-      \   'right': [['lineinfo'],
-      \             ['percent'],
-      \             ['filetype']]
-      \  },
-      \ 'component_type': {
-      \   'bufferline': 'tabsel',
-      \  },
-      \ 'component_expand': {
-      \   'bufferline': 'LightlineBufferline',
-      \  },
-      \ }
-  function! LightlineBufferline()
-  call bufferline#refresh_status()
-    let b = g:bufferline_status_info.before
-    let c = g:bufferline_status_info.current
-    let a = g:bufferline_status_info.after
-    return [b, c, a]
-  endfunction
-set laststatus=2
+  let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'tabline': {
+    \   'left': [['buffers']],
+    \   'right': [['close']]
+    \ },
+    \ 'active': {
+    \   'left': [[ 'mode', 'paste' ],
+    \            [ 'readonly', 'filename', 'modified']],
+    \   'right': [['lineinfo'],
+    \             ['percent'],
+    \             ['filetype']]
+    \  },
+    \ 'component_expand': {
+    \   'buffers': 'lightline#bufferline#buffers'
+    \ },
+    \ 'component_type': {
+    \   'buffers': 'tabsel'
+    \ }
+    \ }
+  set laststatus=2
+  set showtabline=2
 
 
 "----------------------------
@@ -201,10 +198,10 @@ Plug 'davidhalter/jedi-vim', {'for': 'markdown'}
 
 " Testing from vim
 Plug 'janko/vim-test', {'for': 'python'}
-  nmap <silent> <Leader>uf :TestFile<CR>
-  nmap <silent> <Leader>us :TestSuite<CR>
-  nmap <silent> <Leader>ur :TestVisit<CR>  " return to last test
   let test#strategy = "vimterminal"
+  nnoremap <silent> <Leader>uf :TestFile<CR>
+  nnoremap <silent> <Leader>us :TestSuite<CR>
+  nnoremap <silent> <Leader>ur :TestVisit<CR> " return to last test
 
 " ALE - asynchronous linting
 " toggle check with \a
@@ -220,17 +217,10 @@ Plug 'dense-analysis/ale', {'for': ['python', 'markdown']}
     \ }
   let g:ale_fix_on_save = 1
   let g:ale_enabled = 0
-  nmap <leader>a :ALEToggle<CR>
-  nmap <leader>A :ALEFix<CR>
-  nmap <silent> \e <Plug>(ale_next_wrap)
-  nmap <silent> \E <Plug>(ale_previous_wrap)
-
-" Black python formatting
-Plug 'python/black', {'for': 'python', 'tag': '19.10b0' }
-if system('uname') =~ "Linux"
-    let g:black_virtualenv="~/.vim_black"
-endif
-nmap <Leader>bl :Black<CR> 
+  nnoremap <leader>a :ALEToggle<CR>
+  nnoremap <leader>A :ALEFix<CR>
+  nnoremap <silent> \e <Plug>(ale_next_wrap)
+  nnoremap <silent> \E <Plug>(ale_previous_wrap)
 
 
 "----------------------------

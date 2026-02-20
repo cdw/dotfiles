@@ -256,11 +256,9 @@ set background=light
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 colorscheme solarized
-hi Search cterm=underline ctermfg=magenta ctermbg=black
 filetype plugin indent on " Turn on plugins
 
-if has("macunix")
-    set gfn=Menlo:h11
-elseif has("unix")
-    set gfn=ProggyTinyTT\ 12
+
+if has("gui_macvim")
+  set guifont=Monaco:h12
 endif

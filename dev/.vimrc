@@ -49,7 +49,6 @@ set sc            " Show partial commands
 set sm            " Show matching parens
 set path+=**      " Search down into subdirs
 set wildmenu      " Display all matching files on tab
-set complete-=i   " Don't search included files on autocomplete
 set belloff=all   " No flashing or sound
 
 
@@ -105,9 +104,11 @@ Plug 'joereynolds/vim-minisnip' "snippet engine, see ~/.vim/minisnipshl
 Plug 'christoomey/vim-tmux-navigator' "navigate tmux/panes with ^-<movement-key>
 Plug 'qpkorr/vim-renamer' ":Renamer {dir} to edit names of files in a dir
 
-" Browse by tag
-Plug 'vim-scripts/taglist.vim'
-  nmap <Leader>T :TlistToggle<CR>
+" Browse by tag, needs `brew install universal-ctags` or equiv
+Plug 'preservim/tagbar'
+  nnoremap <Leader>T :TagbarToggle<CR>
+  let g:tagbar_width = 30
+  let g:tagbar_autofocus = 1
 
 " Show indents
 Plug 'Yggdroot/indentLine'
@@ -182,26 +183,22 @@ Plug 'airblade/vim-gitgutter'
 "----------------------------
 " Python
 
+if has('nvim')
+    Plug 'github/copilot.vim'
+endif
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' } " relies on taglist
-Plug 'vim-python/python-syntax', { 'for': 'python'}
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-    let g:pymode_lint = 0
-    let g:pymode_options_max_line_length = 127
-    let g:pymode_breakpoint_bind = '<leader>br'
-    let g:pymode_python = 'python3'
-nmap <Leader>P :!python %<CR>
-
-" Autocomplete python, in heavy flux
-" K to show docs for function
-Plug 'davidhalter/jedi-vim', {'for': 'markdown'}
-  let g:jedi#usages_command = "<leader>N"
+nnoremap <Leader>P :!python %<CR>
 
 " Testing from vim
 Plug 'janko/vim-test', {'for': 'python'}
-  let test#strategy = "vimterminal"
   nnoremap <silent> <Leader>uf :TestFile<CR>
   nnoremap <silent> <Leader>us :TestSuite<CR>
   nnoremap <silent> <Leader>ur :TestVisit<CR> " return to last test
+  if has('nvim')
+    let test#strategy = "neovim"
+  else
+    let test#strategy = "vimterminal"
+  endif
 
 " ALE - asynchronous linting
 " toggle check with \a
@@ -238,7 +235,6 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown'}
 if has("macunix")
     nnoremap <leader>m :silent !open -a Marked\ 2.app '%:p'<cr>
 endif
-
 
 " OpenSCAD
 Plug 'torrancew/vim-openscad', {'for': 'scad'}

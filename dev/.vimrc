@@ -90,9 +90,9 @@ set whichwrap=b,s,h,l,<,>,~,[,]
 " PLUGINS
 " ---------------------------
 
-" Manage plugins with vim-plug
+" Manage plugins with vim-plug, in dir outside dotfiles
 " https://github.com/junegunn/vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vimplugins')
 
 "----------------------------
 " Generic vim mechanics

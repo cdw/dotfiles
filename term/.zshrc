@@ -53,7 +53,7 @@ conda() {
 
 
 # Startup
-fortune 40% ~/.config/fortune/oblique_ed4 40% ~/.config/fortune/career 20% ~/.config/fortune/oblique_for_se
+fortune 30% ~/.config/fortune/oblique_ed4 40% ~/.config/fortune/career 20% ~/.config/fortune/oblique_for_se 10% ~/.config/fortune/laws
 cd ~
 
 # Local overrides 

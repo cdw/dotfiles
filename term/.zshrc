@@ -5,37 +5,39 @@ export EDITOR='vim'
 export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.secrets/homebrew_token)
 
 
-# Oh-my-zsh 
-export ZSH="/Users/dave/.oh-my-zsh"
-DISABLE_COMPFIX=true # reduce startup time, trust execution permissions
-skip_global_compinit=1 # prevent dupe compinit call
-ZSH_THEME="robbyrussell" # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-plugins=(git dotenv)
-source $ZSH/oh-my-zsh.sh
-# Only reload completions every 24 hrs rather than every startup
-autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-    compinit
-else
-    compinit -C  # use cache
-fi
+# Prompt - Close to OMZ robbyrussell exit code & Git status
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' unstagedstr ' %F{yellow}✘%f'
+zstyle ':vcs_info:git:*' stagedstr ' %F{red}✘%f'
+zstyle ':vcs_info:git:*' formats '(%b)%u%c '
+zstyle ':vcs_info:git:*' actionformats '(%b|%a) %u%c'
+precmd() { vcs_info }
+setopt PROMPT_SUBST
+PROMPT='%(?.%F{green}.%F{red})➜%f %F{blue}%~%f %F{magenta}${vcs_info_msg_0_}%f'
 
 
 # Alias
+alias la='ls -a'
+alias ..="cd .."
 alias adog='git log --all --decorate --oneline --graph'
 alias cpwd='pwd|tr -d "\n"|pbcopy'  # copy current dir to clipboard
 
 
-# Tools
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-# History
+# History, logging
 HISTSIZE=100000
 SAVEHIST=100000
 setopt HIST_IGNORE_DUPS
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY   # write immediately, not on shell exit
+
+
+# History, searching
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search    # up arrow
+bindkey "^[[B" down-line-or-beginning-search  # down arrow
 
 
 # Conda, lazy-loaded
@@ -55,6 +57,7 @@ conda() {
 # Startup
 fortune 30% ~/.config/fortune/oblique_ed4 40% ~/.config/fortune/career 20% ~/.config/fortune/oblique_for_se 10% ~/.config/fortune/laws
 cd ~
+
 
 # Local overrides 
 [[ -f  ~/.zsh_local ]] && source ~/.zsh_local

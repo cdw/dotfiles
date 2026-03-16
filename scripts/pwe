@@ -1,8 +1,0 @@
-#!/bin/bash
-ve=`echo $VIRTUAL_ENV | rev | cut -d / -f 1 | rev`
-if [ ${#ve} == 0 ];
-then
-    ve="none"
-fi
-echo "VE:$ve"
-echo "Conda:$CONDA_DEFAULT_ENV"

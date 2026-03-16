@@ -29,5 +29,10 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
+# Tab complete should include dotfiles
+autoload -Uz compinit && compinit
+zstyle ':completion:*' special-dirs true
+_comp_options+=(globdots)
+
 # Local overrides
 [[ -f ~/.zsh_local ]] && source ~/.zsh_local

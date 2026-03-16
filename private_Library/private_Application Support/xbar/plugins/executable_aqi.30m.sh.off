@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# <xbar.title>AirNow AQI</xbar.title>
+# <xbar.version>v1.0</xbar.version>
+# <xbar.author>cdw</xbar.author>
+# <xbar.author.github>cdw</xbar.author.github>
+# <xbar.desc>Display the current AQI for PM2.5 gathered from AirNow.gov, the EPA's air quality site.</xbar.desc>
+# <xbar.dependencies>bash,jq</xbar.dependencies>
+# <xbar.var>string(JQ_PATH="/usr/local/bin/jq"): Path to jq JSON processor. Install via `brew install jq`</xbar.var>
+# <xbar.var>string(API_TOKEN=""): API Token from AirNow.gov. Register [here](https://docs.airnowapi.org/login) to acquire a token.</xbar.var>
+# <xbar.var>string(ZIP="98102"): Location to get AQI for.</xbar.var>
+# <xbar.var>string(DISTANCE="10"): Miles around to look and average over.</xbar.var>
+
+URL="https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=${ZIP}&distance=${DISTANCE}&API_KEY=${API_TOKEN}"
+AQI=$(curl -s ${URL} | ${JQ_PATH} '.[] |  select(.ParameterName == "PM2.5") | .AQI')
+#echo "AQI: "$AQI
+if [ $AQI -lt 51 ]
+then
+    #echo AQI: 🟢 $AQI
+    echo 😶‍🌫️ $AQI
+elif [ $AQI -lt 101 ]
+then
+    echo 😶‍🌫️ 🟡 $AQI
+elif [ $AQI -lt 151 ]
+then
+    echo 😶‍🌫️ 🟠 $AQI
+elif [ $AQI -lt 201 ]
+then
+    echo 😶‍🌫️ 🔴 $AQI
+elif [ $AQI -lt 301 ]
+then
+    echo 😶‍🌫️ 🟣 $AQI
+else
+    echo 😶‍🌫️ ⛔️ $AQI
+fi

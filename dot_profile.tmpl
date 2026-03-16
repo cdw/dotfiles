@@ -9,10 +9,14 @@ export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=vim
 
 {{ if eq .chezmoi.os "darwin" -}}
-# macOS
-export HOMEBREW_GITHUB_API_TOKEN="$(cat ~/.secrets/homebrew_token)"
+# macOS — token populated by chezmoi from encrypted source
+[ -f ~/.secrets/homebrew_token ] && export HOMEBREW_GITHUB_API_TOKEN="$(cat ~/.secrets/homebrew_token)"
 
 {{ end -}}
+# API keys — populated by chezmoi from encrypted sources
+[ -f ~/.secrets/openai ] && . ~/.secrets/openai
+
+
 # ls — CLICOLOR covers BSD ls (macOS); alias covers GNU ls (Linux)
 export CLICOLOR=1
 [ "$(uname)" != "Darwin" ] && alias ls='ls --color=auto'

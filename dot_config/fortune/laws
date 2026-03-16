@@ -1,0 +1,32 @@
+%
+Gall's Law: A complex system that works evolved from a simple system that worked. A complex system designed from scratch never works and cannot be patched up to make it work. You have to start over with a working simple system.
+%
+Amdahl's Law: Optimizing part of a system cannot improve performance more than the fraction of time the part is used.
+%
+Brook's Law: Adding more people to a late project makes it later. 
+%
+Conway's Law: Software architecture reflects the organizational structure of the group that made it.
+%
+Goodhart's law: When a measure becomes a target, it ceases to be a good measure.
+%
+Sturgeon's law: 90% of everything is crud.
+%
+Hofstadter's law: It always takes longer than you expect, even when you take into account Hofstadter's law
+%
+Hyrum's Law: With a sufficient number of users all observable behaviors of your system will be depended on.
+%
+Metcalfe's law: The value of a communication system grows as the square of its number of users.
+%
+Miller's law: To understand what another person is saying, assume that it is true and try to imagine what it could be true of.
+%
+Newton's flaming laser sword: That which cannot be settled by experiment is not worth debate.
+%
+Parkinson's Law: Work expands to fill the time available.
+%
+Premack's principle: More likely behaviors will reinforce less likely behaviors. Or: Design your systems so that fun is gatekept by maintenance.
+%
+Segal's law: A man with a watch knows what time it is. A man with two watches is never sure.
+%
+Twyman's law: Any figure that looks interesting or different is usually wrong.
+%
+Zipf's law: Frequency in an ordered set is often inversely proportional to rank.

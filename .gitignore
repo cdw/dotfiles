@@ -32,3 +32,5 @@ term/.tmux/
 /dev/.config/configstore
 /dev/.config/coc
 /macos/alfred
+dev/.config/aocd
+secrets

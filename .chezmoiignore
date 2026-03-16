@@ -1,0 +1,15 @@
+# Stow modules — being migrated, not yet chezmoi structure
+aws/
+dev/
+linux/
+macos/
+python/
+scripts/
+term/
+
+# Local-only content (gitignored)
+secrets/
+wallpapers/
+
+# Repo metadata
+README.md

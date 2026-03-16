@@ -1,0 +1,6 @@
+# ~/.bash_profile — bash login shell entry point
+# Sources both shared config and interactive config
+# Managed by chezmoi — do not edit directly
+
+[ -f ~/.profile ] && . ~/.profile
+[ -f ~/.bashrc ]  && . ~/.bashrc

@@ -1,0 +1,16 @@
+{{- $minimal := false -}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS") (env "DEVCONTAINER") -}}
+{{-   $minimal = true -}}
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   $minimal = promptBoolOnce . "minimal" "Minimal install (server/SSH)" -}}
+{{- end -}}
+{{- $email := promptStringOnce . "email" "Git email address" -}}
+encryption = "age"
+
+[age]
+    identity = "~/.age/key.txt"
+    recipient = "age1kj37pgzf8m6uxe3lzsg6etg9gazglgu5h60gvjxtqcarrfnaussqklnhsj"
+
+[data]
+    minimal = {{ $minimal }}
+    email = {{ $email | quote }}

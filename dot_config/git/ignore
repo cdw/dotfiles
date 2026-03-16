@@ -1,0 +1,8 @@
+# Global gitignore — applies to all repos on this machine
+# Managed by chezmoi — do not edit directly
+
+# Claude Code
+**/.claude/settings.local.json
+
+# macOS
+.DS_Store

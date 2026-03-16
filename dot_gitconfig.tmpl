@@ -1,0 +1,46 @@
+# ~/.gitconfig
+# Managed by chezmoi — do not edit directly
+# Machine-specific overrides (credentials, work config) go in ~/.gitconfig.local
+
+[user]
+    name = David Williams
+    email = {{ .email }}
+
+[init]
+    defaultBranch = main
+
+[core]
+    # git automatically reads ~/.config/git/ignore (XDG); no excludesfile directive needed
+
+[filter "lfs"]
+    # git-lfs hooks — installed by `git lfs install`, not managed manually
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[lfs]
+    activitytimeout = 600
+
+[difftool]
+    prompt = false
+
+[mergetool]
+    prompt = false
+    keepBackup = true
+
+[include]
+    # Machine-specific overrides: credentials, work remotes, GCM config
+    #
+    # Recommended ~/.gitconfig.local for work (ADO) machines:
+    #
+    # [credential]
+    #     helper =                                             # clears osxkeychain so GCM is sole helper
+    #     helper = /usr/local/share/gcm-core/git-credential-manager
+    #     credentialStore = keychain                           # macOS Keychain; use secretservice on Linux
+    #     azreposCredentialType = oauth                        # OAuth device flow, avoids manual PAT management
+    # [credential "https://dev.azure.com"]
+    #     useHttpPath = true                                   # per-org credentials; critical for multi-org ADO
+    #
+    # If auth seems broken: git credential reject <url> to clear stale Keychain entry, then re-fetch
+    path = ~/.gitconfig.local

@@ -1,0 +1,16 @@
+#!/bin/sh
+# Install UV Python package manager
+# Runs once per machine via chezmoi; updates handled by `uv self update` / topgrade
+# https://docs.astral.sh/uv/getting-started/installation/
+{{ if .minimal -}}
+# Minimal install — skipping UV
+exit 0
+{{ end -}}
+
+if command -v uv >/dev/null 2>&1; then
+    echo "UV already installed: $(uv --version)"
+    exit 0
+fi
+
+echo "Installing UV..."
+curl -LsSf https://astral.sh/uv/install.sh | sh

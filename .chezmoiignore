@@ -1,0 +1,18 @@
+# Local-only content (not committed)
+wallpapers/
+
+# macOS-only paths
+{{ if ne .chezmoi.os "darwin" }}
+private_Library/
+{{ end }}
+
+# Hobby Linux desktop only (DWM etc.)
+{{ if not .hobby_linux }}
+dot_xinitrc
+dot_xmodmap
+dot_xsession
+dot_xsetroot.sh
+{{ end }}
+
+# Repo metadata
+README.md

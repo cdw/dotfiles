@@ -1,0 +1,37 @@
+# ~/.zshrc — zsh interactive config
+# Managed by chezmoi — do not edit directly
+
+# Load shared config
+[ -f ~/.profile ] && . ~/.profile
+
+# Prompt — exit code indicator, path, git status
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' unstagedstr ' %F{yellow}✘%f'
+zstyle ':vcs_info:git:*' stagedstr ' %F{red}✘%f'
+zstyle ':vcs_info:git:*' formats '(%b)%u%c '
+zstyle ':vcs_info:git:*' actionformats '(%b|%a) %u%c'
+precmd() { vcs_info }
+setopt PROMPT_SUBST
+PROMPT='%(?.%F{green}.%F{red})➜%f %F{blue}%~%f %F{magenta}${vcs_info_msg_0_}%f'
+
+# History
+HISTSIZE=100000
+SAVEHIST=100000
+setopt HIST_IGNORE_DUPS
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+
+# History search with arrows
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+
+# Tab complete includes dotfiles (matches OMZ/fish behaviour); no . or ..
+autoload -Uz compinit && compinit
+_comp_options+=(globdots)
+
+# Local overrides
+[[ -f ~/.zsh_local ]] && source ~/.zsh_local

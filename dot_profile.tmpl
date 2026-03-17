@@ -1,0 +1,52 @@
+# ~/.profile — shared POSIX sh config
+# Sourced by .zshrc (zsh) and .bash_profile (bash login shells)
+# Managed by chezmoi — do not edit directly
+
+# PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# Editor
+export EDITOR=vim
+
+{{ if eq .chezmoi.os "darwin" -}}
+# macOS — token populated by chezmoi from encrypted source
+[ -f ~/.secrets/homebrew_token ] && export HOMEBREW_GITHUB_API_TOKEN="$(cat ~/.secrets/homebrew_token)"
+
+{{ end -}}
+# API keys — populated by chezmoi from encrypted sources
+[ -f ~/.secrets/openai ] && . ~/.secrets/openai
+
+
+# ls — CLICOLOR covers BSD ls (macOS); alias covers GNU ls (Linux)
+export CLICOLOR=1
+[ "$(uname)" != "Darwin" ] && alias ls='ls --color=auto'
+
+# Navigation
+alias la='ls -A'
+alias ..='cd ..'
+alias ...='cd ...'
+alias cl='clear'
+alias j='jobs -l'
+
+# Safety
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Tools
+alias du='du -kh'
+alias adog='git log --all --decorate --oneline --graph'
+alias which='type -a'
+
+# History size (shell-specific history behaviour lives in .zshrc / .bashrc)
+export HISTFILESIZE=100000
+
+{{ if not .minimal -}}
+# Fortune
+fortune 30% ~/.config/fortune/oblique_ed4 \
+        40% ~/.config/fortune/career \
+        20% ~/.config/fortune/oblique_for_se \
+        10% ~/.config/fortune/laws
+
+{{ end -}}
+# Local overrides
+[ -f ~/.profile_local ] && . ~/.profile_local

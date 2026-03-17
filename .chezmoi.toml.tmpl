@@ -1,0 +1,21 @@
+{{- $minimal := false -}}
+{{- $hobby_linux := false -}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS") (env "DEVCONTAINER") -}}
+{{-   $minimal = true -}}
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   $minimal = promptBoolOnce . "minimal" "Minimal install (server/SSH)" -}}
+{{-   if not $minimal -}}
+{{-     $hobby_linux = promptBoolOnce . "hobby_linux" "Hobby Linux desktop (DWM etc.)" -}}
+{{-   end -}}
+{{- end -}}
+{{- $email := promptStringOnce . "email" "Git email address" -}}
+encryption = "age"
+
+[age]
+    identity = "~/.age/key.txt"
+    recipient = "age1kj37pgzf8m6uxe3lzsg6etg9gazglgu5h60gvjxtqcarrfnaussqklnhsj"
+
+[data]
+    minimal = {{ $minimal }}
+    hobby_linux = {{ $hobby_linux }}
+    email = {{ $email | quote }}

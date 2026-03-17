@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# <xbar.title>UV Index from OpenUV</xbar.title>
+# <xbar.version>v1.0</xbar.version>
+# <xbar.author>cdw</xbar.author>
+# <xbar.author.github>cdw</xbar.author.github>
+# <xbar.desc>Display the current UV index from OpenUV.io</xbar.desc>
+# <xbar.dependencies>bash,jq</xbar.dependencies>
+# <xbar.var>string(JQ_PATH="/usr/local/bin/jq"): Path to jq JSON processor. Install via `brew install jq`</xbar.var>
+# <xbar.var>string(API_TOKEN=""): API Token from OpenUV.io. Register [here](https://www.openuv.io) to acquire a token.</xbar.var>
+# <xbar.var>number(LAT="47.6062"): Latitude for forecast (-90.0 to 90.0).</xbar.var>
+# <xbar.var>number(LON="-122.3321"): Longitude for forecast (-180.0 to 180.0).</xbar.var>
+# <xbar.var>number(ALT="100"): Altitude for forecast in meters (0 to 10000).</xbar.var>
+
+URL="https://api.openuv.io/api/v1/uv?lat=${LAT}&lng=${LON}&alt=${ALT}"
+UVFORECAST=$(curl --location ${URL} --header "x-access-token: ${API_TOKEN}")
+UV=$(printf "%.0f" $(echo $UVFORECAST | ${JQ_PATH} '.result.uv'))
+#echo $URL
+#echo $UVFORECAST
+if [ $UV -lt 3 ]
+then
+    echo 🌞🟢
+elif [ $UV -lt 6 ]
+then
+    echo 🌞🟠 $UV
+elif [ $UV -lt 8 ]
+then
+    echo 🌞🔴 $UV
+elif [ $UV -lt 11 ]
+then
+    echo 🌞🟣 $UV
+elif [ $UV -lt 1000 ]
+then
+    echo 🌞🔵 $UV!
+else
+    echo 🌞⛔️ $UV
+fi

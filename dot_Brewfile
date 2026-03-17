@@ -1,0 +1,123 @@
+# ~/.Brewfile — managed by chezmoi
+# Install missing: brew bundle --global
+# Upgrade all:     topgrade
+# Cleanup orphans: brew bundle cleanup --global --force
+
+# ── Formulas ──────────────────────────────────────────────────────────────────
+
+brew "ack"
+brew "age"
+brew "azure-cli"
+brew "bat"
+brew "chezmoi"
+brew "cowsay"
+brew "ctop"
+brew "diff-so-fancy"
+brew "doxx"
+brew "entr"
+brew "feh"
+brew "ffmpeg"
+brew "figlet"
+brew "fish"
+brew "fortune"
+brew "fzf"
+brew "ghostscript"
+brew "gist"
+brew "git"
+brew "git-lfs"
+brew "graphviz"
+brew "htop"
+brew "imagemagick"
+brew "jrnl"
+brew "lazygit"
+brew "mas"
+brew "mplayer"
+brew "p7zip"
+brew "pipx"
+brew "pngcrush"
+brew "ripgrep"
+brew "rsync"
+brew "ruff"
+brew "tealdeer"
+brew "tmux"
+brew "topgrade"
+brew "trash"
+brew "tree"
+brew "universal-ctags"
+brew "vim"
+brew "watch"
+brew "wget"
+brew "yt-dlp"
+
+# ── Casks ─────────────────────────────────────────────────────────────────────
+
+cask "adobe-digital-editions"
+cask "alfred"
+cask "anki"
+cask "backblaze"
+cask "calibre"
+cask "claude"
+cask "docker"
+cask "docker-desktop"
+cask "fork"
+cask "ghostty"
+cask "git-credential-manager"
+cask "google-chrome"
+cask "hazel"
+cask "inkscape"
+cask "istat-menus"
+cask "logi-options+"
+cask "macvim-app"
+cask "macwhisper"
+cask "maestral"
+cask "marked-app"
+cask "microsoft-auto-update"
+cask "microsoft-edge"
+cask "microsoft-teams"
+cask "monitorcontrol"
+cask "moom"
+cask "netnewswire"
+cask "obsidian"
+cask "pearcleaner"
+cask "slack"
+cask "the-archive"
+cask "transmit"
+cask "visual-studio-code"
+cask "vlc"
+cask "zoom"
+
+# ── Mac App Store ─────────────────────────────────────────────────────────────
+
+mas "AdGuard Mini",        id: 1440147259
+mas "Azure VPN Client",    id: 1553936137
+mas "Be Focused Pro",      id: 961632517
+mas "Codye",               id: 1516894961
+mas "DaisyDisk",           id: 411643860
+mas "Dark Noise",          id: 1465439395
+mas "Dato",                id: 1470584107
+mas "FSNotes",             id: 1277179284
+mas "Gestimer",            id: 6447125648
+mas "Good Stopwatch",      id: 1268456701
+mas "Good Timer",          id: 1268457877
+mas "Goodnotes",           id: 1444383602
+mas "Hidden Bar",          id: 1452453066
+mas "Image2Icon",          id: 992115977
+mas "Instapaper",          id: 288545208
+mas "Kagi for Safari",     id: 1622835804
+mas "Keka",                id: 470158793
+mas "Keynote",             id: 409183694
+mas "Lungo",               id: 1263070803
+mas "MeetingBar",          id: 1532419400
+mas "Minesweeper",         id: 1475921958
+mas "Numbers",             id: 409203825
+mas "One Thing",           id: 1604176982
+mas "Pages",               id: 409201541
+mas "Peek",                id: 1554235898
+mas "Pixelmator Pro",      id: 1289583905
+mas "pwSafe",              id: 520993579
+mas "TextSniper",          id: 1528890965
+mas "Tot",                 id: 1491071483
+mas "UnTrap",              id: 1637438059
+mas "Vimari",              id: 1480933944
+mas "World Clock",         id: 956377119
+mas "Xcode",               id: 497799835

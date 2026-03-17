@@ -1,0 +1,23 @@
+colors:
+  body: none
+  date: black
+  tags: yellow
+  title: cyan
+default_hour: 9
+default_minute: 0
+editor: vim
+encrypt: false
+highlight: true
+indent_character: '|'
+journals:
+  default:
+    journal: /Users/dave/icloud/docs/journal/jrnl.txt
+  thought:
+    journal: /Users/dave/icloud/docs/journal/thought.txt
+  working:
+    journal: /Users/dave/icloud/docs/journal/working.txt
+linewrap: 79
+tagsymbols: '#@'
+template: false
+timeformat: '%F %r'
+version: v4.2.1

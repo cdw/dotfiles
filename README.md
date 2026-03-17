@@ -6,7 +6,7 @@ Includes dev tools, macOS setup via Homebrew, weird DWM config for Linux, and mo
 
 ## Setup
 
-1) Install chezmoi (via brew or from [get.chezmoi.io]()).
+1) Install chezmoi (via brew or from [chezmoi.io/](https://www.chezmoi.io/)).
 2) Get the age private key (Password Safe) and install it:
    ```sh
    mkdir ~/.age && chmod 700 ~/.age

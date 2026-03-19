@@ -6,8 +6,9 @@ Includes dev tools, macOS setup via Homebrew, weird DWM config for Linux, and mo
 
 ## Setup
 
-1) Install chezmoi (via brew or from [chezmoi.io/](https://www.chezmoi.io/)).
-2) Get the age private key (Password Safe) and install it:
+1) Install Homebrew
+2) Install chezmoi (via brew or from [chezmoi.io/](https://www.chezmoi.io/)).
+3) Get the age private key (Password Safe) and install it:
    ```sh
    mkdir ~/.age && chmod 700 ~/.age
    # Paste key into:
@@ -15,21 +16,21 @@ Includes dev tools, macOS setup via Homebrew, weird DWM config for Linux, and mo
    chmod 600 ~/.age/key.txt
    ```
 
-3) Bootstrap, cloning repo to `~/.local/share/chezmoi`:
+4) Bootstrap, cloning repo to `~/.local/share/chezmoi`:
   ```sh
   chezmoi init github.com/cdw/dotfiles
   chezmoi apply
   ```
 
-4) This will generate `~/.config/chezmoi/chezmoi.toml` from the template and prompt for:
+5) This will generate `~/.config/chezmoi/chezmoi.toml` from the template and prompt for:
 
 - Email address — used in `.gitconfig` (asked once, cached)
 - Minimal install? — Linux only; `true` for servers/NAS/SSH/devcontainers, `false` for full installs
 - Hobby Linux desktop? — Linux non-minimal only; `true` for DWM machines
 
-5) Install Homebrew packages (macOS): `brew bundle --global `
-6) Install vim plugins: `vim +PlugInstall +qall`
-7) Install tmux plugins (TPM): `~/.tmux/plugins/tpm/bin/install_plugins`
+6) Install Homebrew packages (macOS): `brew bundle --global `
+7) Install vim plugins: `vim +PlugInstall +qall`
+8) Install tmux plugins (TPM): `~/.tmux/plugins/tpm/bin/install_plugins`
 
 ## Ongoing
 

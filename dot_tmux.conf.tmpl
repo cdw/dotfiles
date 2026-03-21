@@ -35,8 +35,8 @@ set-window-option -g pane-base-index 1
 set -g renumber-windows on
 
 # Status bar, nice light gray/green
-set -g status-bg '#333333'
-set -g status-fg '#88ff88'
+set -g status-bg '#444444'
+set -g status-fg '#ACDCB9'
 set -g status-position top
 
 # Mouse to focus and copy
@@ -49,6 +49,7 @@ set -g mouse on
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'      # copies to system clipboard
+set -g @plugin 'jaclu/tmux-menus'
 
 {{ if eq .chezmoi.os "darwin" -}}
 set-environment -g PATH "/opt/homebrew/bin:/bin:/usr/bin"

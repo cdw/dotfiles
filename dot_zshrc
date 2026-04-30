@@ -22,7 +22,10 @@ setopt HIST_IGNORE_DUPS
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 
-# History search with arrows
+# Emacs keybindings (explicit, so nothing can flip us to vi mode)
+bindkey -e
+
+# History search with arrows (set after bindkey -e)
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
@@ -30,8 +33,21 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 # Tab complete includes dotfiles (matches OMZ/fish behaviour); no . or ..
+zmodload zsh/complist
 autoload -Uz compinit && compinit
 _comp_options+=(globdots)
+
+# Always use the interactive selection menu
+zstyle ':completion:*' menu select
+
+# Main keymap: shift-tab cycles backward (before/outside menu)
+bindkey '^[[Z' reverse-menu-complete
+
+# In the selection menu: shift-tab backward, common abort keys exit
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+bindkey -M menuselect '^[' send-break
+bindkey -M menuselect '^G' send-break
+bindkey -M menuselect '^C' send-break
 
 # Local overrides
 [[ -f ~/.zsh_local ]] && source ~/.zsh_local

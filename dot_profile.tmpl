@@ -48,5 +48,9 @@ fortune 30% ~/.config/fortune/oblique_ed4 \
         10% ~/.config/fortune/laws
 
 {{ end -}}
+# Python scratch environment — activate with: bench
+alias bench='source ~/.venv/bin/activate'
+alias benchwipe='rm -rf ~/.venv && uv venv ~/.venv'
+
 # Local overrides
 [ -f ~/.profile_local ] && . ~/.profile_local
